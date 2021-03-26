@@ -26,6 +26,8 @@ public class CompareOperatorExam {
 		// float, double은 비교x
 		// 굳이 할거면 double을 float으로 형변환 해야 함
 		
+		System.out.println(Double.compare(1.21, 3.21)); // -1 false, 0 true
+		
 		// <, >, <=, >=, ==, != : 원시형 숫자 타입 (include char)
 		// reference type에서 ==은 주소값 비교
 		// String은 값 비교 시 value1.equals(value2)를 이용
