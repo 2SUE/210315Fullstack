@@ -47,6 +47,6 @@ public class IfMission3 {
 			} else {
 				System.out.println("B-");
 			}
-		} 
+		}
 	}
 }

@@ -2,27 +2,27 @@ package sec06.ch04;
 
 public class IfExam3 {
 	public static void main(String[] args) {
-		
-		if(true) { 
+
+		if (true) {
 			System.out.println("A");
-			if(true) {
+			if (true) {
 				System.out.println("B");
-			} else if(true) {
+			} else if (true) {
 				System.out.println("C");
 			} else {
 				System.out.println("D");
 			}
-		} else if(true) {
+		} else if (true) {
 			System.out.println("E");
-			if(true) {
+			if (true) {
 				System.out.println("F");
-				if(true) {
+				if (true) {
 					System.out.println("G");
-					if(true) {
+					if (true) {
 						System.out.println("H");
 					}
 				}
-			} 
+			}
 		}
 	}
 }
