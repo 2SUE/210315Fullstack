@@ -9,7 +9,7 @@ public class WhileMission2_1 {
 			int val = (int) (Math.random() * 11);
 			sum += val;
 			if(val == 0) {
-				System.out.println("~~~~탈출~~~~");
+				System.out.println("---탈출---");
 				break;
 			}
 			System.out.println("val : " + val);
