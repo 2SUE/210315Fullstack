@@ -35,11 +35,12 @@ public class VendingMachineMission3 {
 	 		종료 - 남은 금액 : 700원
 		 */
 		
+		String[] menuNmArr = { "콜라", "사이다", "환타", "스프라이트", "망고주스", "포도주스" };
+		int[] menuPriceArr = { 1000, 1200, 1300, 1500, 2000, 3000 };
+		
 		System.out.print("돈을 주입해 주세요 : ");
 		int insertMoney = scan.nextInt();
 		
-		String[] menuNmArr = { "콜라", "사이다", "환타", "스프라이트", "망고주스", "포도주스" };
-		int[] menuPriceArr = { 1000, 1200, 1300, 1500, 2000, 3000 };
 		System.out.println("\n<메뉴>");
 		System.out.println("0. 종료");
 		
@@ -47,6 +48,7 @@ public class VendingMachineMission3 {
 			System.out.printf("%d. %s (%,d원)\n", i + 1, menuNmArr[i], menuPriceArr[i]);
 		}
 		
+		/*
 		while(true) {
 			System.out.printf("\n선택> ");
 			int choice = scan.nextInt();
@@ -68,6 +70,32 @@ public class VendingMachineMission3 {
 				System.out.printf("금액이 부족합니다.");
 			}
 			System.out.printf(" (남은 금액 %,d원)\n", insertMoney);
+		}
+		*/
+		
+		boolean run = true;
+		
+		while(run) {
+			 System.out.print("\n선택> ");
+			 int choice = scan.nextInt();
+			 
+			 if(choice < 0 || choice > menuNmArr.length) {
+				 System.out.println("잘못 선택");
+				 continue;
+			 }
+			 
+			 int selectedIdx = choice -1;
+			 
+			 if(choice == 0) {
+				 run = false;
+				 System.out.print("종료");
+			 } else if(insertMoney < menuPriceArr[selectedIdx]) {
+				 System.out.print("금액이 부족합니다.");
+			 } else {
+				 System.out.printf("%s를 선택하셨습니다.", menuNmArr[selectedIdx]);
+				 insertMoney -= menuPriceArr[selectedIdx];
+			 }
+				System.out.printf(" (남은 금액 %,d원)\n", insertMoney);
 		}
 		
 		scan.close();
