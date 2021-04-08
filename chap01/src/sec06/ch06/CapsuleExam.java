@@ -20,11 +20,14 @@ public class CapsuleExam {
 }
 
 class Human {
+	
 	// 멤버 필드는 private로 만들어라 ~.~
+	// 상수는 private로 안 해도 됨
 	private int age;
 	private String name;
 
 	// 생성자, 메소드로 외부에서 private 멤버 변수 접근 가능 (값 넣기)
+	// 생성자는 생성할 때만 호출되기 때문에 값 변경 안 됨,, 먼솔;
 	// 값 빼는 건 getter메소드로만 가능
 
 	// setter, getter
