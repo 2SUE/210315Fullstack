@@ -15,5 +15,4 @@ public class StaticExam5 {
 	public int sum() {
 		return n1 + n2;
 	}
-	
 }
