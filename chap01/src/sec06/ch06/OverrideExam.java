@@ -27,6 +27,7 @@ class NumBox {
 //		Object는 모든 데이터 타입, 객체를 담을 수 있다.
 		NumBox temp = (NumBox) obj;
 		
-		return this.getNum() == temp.getNum(); // 값비교로 오버라이딩
+		// equals : 기존 주소 값 비교를 값 비교로 오버라이딩
+		return this.getNum() == temp.getNum();
 	}
 }
