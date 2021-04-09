@@ -2,15 +2,7 @@ package sec06.ch06;
 
 public class InheriExam {
 	public static void main(String[] args) {
-		Cat cat = new Cat();
-		cat.name = "고양이";
-		cat.age = 4;
-		cat.howling();
-		cat.lick();
-		
 		Koshort cat2 = new Koshort();
-		cat2.name = "홍이";
-		cat2.pee();
 	}
 }
 
@@ -19,28 +11,29 @@ class Animal /* extends Object */ {
 	String name;
 	int age;
 	
-	public Animal(String name, int age) {
-		super();
-		this.name = name;
-		this.age = age;
-	}
+//	public Animal(String name, int age) {
+//		super();
+//		this.name = name;
+//		this.age = age;
+//	}
 
 	void howling() {
-		System.out.printf("%d살짜리 %s가 운다.\n", age, name);
+		System.out.printf("운다.\n");
 	}
 }
 
 // 자식은 부모가 가진 요소 모두를 상속받는다.
+// 다중 상속 불가, 하나만 상속 가능
 class Cat extends Animal {
 	
 	Cat() {
-		super("", 0); // Animal에 기본 생성자가 없기 때문에 생성된 생성자의 매개변수를 맞춰줘야함
+//		super("", 0); // Animal에 기본 생성자가 없기 때문에 생성된 생성자의 매개변수를 맞춰줘야함
+		
+//		System.out.println("Cat 생성자");
 
 //		super(); 기본으로 들어감
 		// this : 클래스명 자기 자신
 		// super() : 바로 위의 부모
-		
-//		System.out.println("Cat 생성자");
 	}
 	
 	void lick() {
@@ -55,7 +48,7 @@ class Cat extends Animal {
 
 class Koshort extends Cat {
 	Koshort() {
-//		System.out.println("Koshort 생성자");
+		System.out.println("Koshort 생성자");
 	}
 	
 	void pee() {
