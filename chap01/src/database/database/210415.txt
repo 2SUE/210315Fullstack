@@ -1,0 +1,5 @@
+command prompt
+mysql -uroot -p
+koreait
+
+crtl + c 나가기,,
