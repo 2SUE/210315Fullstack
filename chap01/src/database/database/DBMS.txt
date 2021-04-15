@@ -1,0 +1,15 @@
+DBMS (MariaDB)
+tool > HeidiSQL
+
+DB password : koreait
+
+쿼리 실행 단축 : ctrl + shift + F9 
+
+대소문자 안 가림 (값은 가림)
+무조건 홑따옴표. 쌍따옴표x
+
+엑셀의 중앙집중형ver
+
+/* 주석 */
+-- 주석
+#주석
