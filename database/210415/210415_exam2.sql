@@ -30,5 +30,17 @@ HAVING count(emp_no);
 # 고용일이 1990년 이상이신 사람들을 출력
 
 SELECT * FROM employees
-GROUP BY gender
-WHERE gender = 'F' and first_name LIKE 'S%' and hire_date >= '1990-01-01';
+WHERE gender = 'F' 
+and first_name LIKE 'S%' 
+and hire_date >= '1990-01-01'
+ORDER BY hire_date;
+
+SELECT title FROM titles
+GROUP BY title
+HAVING COUNT(title) = (
+	SELECT MAX(A.cnt)) FROM (
+		SELECT COUNT(title) AS cnt
+		FROM titles
+		GROUP BY title
+	) A
+);
