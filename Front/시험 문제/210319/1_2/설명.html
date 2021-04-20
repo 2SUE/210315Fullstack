@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="주소값" method="어떤 방식으로 날아갈지">
+            <!--
+                label과 연결된 텍스트 박스 어쩌구,, 
+                아이디 (글씨)를 눌러도 입력창에 포커스가 생기게 
+                checkbox, radio 버튼 사용할 때 label을 주로 사용
+                (버튼이 작기 때문에)
+
+                form 태그 안 button : 액션, 메소드를 날리는 방아쇠 역할1 (form 태그 실행)
+                이 문제에선 button을 사용하지 않고 input type="button"을 사용
+            -->
+
+            <div><label>아이디 : <input type="text" id="txtId"></label></div>
+            <div><label>비밀번호 : <input type="password" id="txtPw"></label></div>
+            <input type="button" value="login" onclick="clkLogin()">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <div>
+                <!--
+                    name 값이 같으면 하나의 그룹이 됨
+                    checked : 무조건 한 radio 버튼이 눌려짐 
+                -->
+
+                성별 : 
+                <label>여성 <input type="radio" name="gender" checked></label>
+                <label>남성 <input type="radio" name="gender"></label>
+            </div>
+
+            <div>
+                <a href="./join.html"><input type="button" value="join"></a>
+                <input type="reset" value="초기화">
+                <!-- 아래 두 태그는 form 태그 안에서 동일한 역할을 수행 (정보 전달)-->
+                <input type="submit" value="전송">
+                <button>전송</button>
+            </div>
+        </form>
+
+        <!---->
+    </div>
+</body>
+</html>

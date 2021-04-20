@@ -42,4 +42,4 @@ SELECT A.iboard
 FROM t_board A
 LEFT JOIN t_cmt B
 ON A.iboard = B.iboard
-WHERE B.icmt IS NULL;
+WHERE B.ctnt IS NULL;

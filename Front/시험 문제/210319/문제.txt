@@ -1,0 +1,45 @@
+문제 제출 시 파일 압축
+css 파일 분리해서 제출 가능
+큰 문제 3개, 각 문제 별 요구사항=채점요소
+
+[ 문제 1 - 1_1.html ]
+- 가로, 세로는 전체 화면을 사용
+- 모든 엘리먼트의 box-sizing은 border-box로 설정
+- header, section, footer가 브라우저 화면을  가득 채우게 처리
+- 레이아웃 구성에 flex 사용
+- header 상위에 고정
+- header 세로 120px 크기 고정
+- header 배경색 (#1abc9c) 적용
+- footer 하위에 고정
+- footer 세로 100px 크기 고정
+- footer 배경색 (#3498db) 적용
+- footer 텍스트 가로 중앙 정렬
+- footer 텍스르 세로 중앙 정렬
+- 브라우저 크기가 변경되거나 section 내용이 많아졌을 때 section에 scroll이 나타나게 처리
+  > 반대인 경우 scroll이 나타나지 않게 처리 
+- image를 오른쪽에 위치
+- image를 클릭하면 www.google.com url로 이동하게 처리
+- imgae를 클릭하면 www.google.com url로 이동할 때 새 창 띄우기로 처리
+- image 주위를 title2와 article이 감싸게 처리
+- table border는 한 줄(1px)만 나오게 처리
+- table 열 2칸을 1칸으로 합치기 (Jill Smith)
+- 행 2칸을 1칸으로 합치기(94)
+
+[ 문제 2 ]
+- common.css 파일 생성 / common.js 파일 생성 - 각 1점
+- html에서 css, javascript 사용하면 2점 감점
+- login.html 아이디, 비번 인풋창(form 태그로 감싸기->안 해도 됨), 회원가입, 로그인 버튼 생성
+- 회원가입 버튼 -> join.html 이동
+- 로그인 버튼 -> main.html 이동
+- 아이디, 비밀번호 상자에 값이 없으면 alert(로그인을 할 수 없습니다.) 띄우기
+
+메인 파일 - FLEX 사용 (영역 나눌 때 flex-grow로!)
+플렉스는 직속 자식에만 영향을 주기 때문에 참고해서 잘 짜봐라ㅏㅏㅏ
+div> flex column
+div*3(헤더 섹션 푸터)>
+섹션>div*3 flex row
+섹션>div:last> 영역2개 나누고 flex-grow 주기
+div 안 텍스트 지우기
+
+[ 문제 2-1 ]
+2번 문제 파일을 제시된 대로 꾸미면 됨 (한 파일면 해도 됨)

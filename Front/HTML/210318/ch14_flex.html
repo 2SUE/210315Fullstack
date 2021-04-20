@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>flex</title>
+    <style>
+
+        #parent {
+            display: flex;
+        }
+        #container {
+            background: blue;
+            color: #fff;
+            font-weight: bold;
+            height: 400px;
+            display: flex;
+            flex-grow:1;
+            flex-direction: row;
+            justify-content:space-evenly;
+            align-items: center;
+        }
+        
+        #container2 {
+            background: pink;
+            color: #fff;
+            font-weight: bold;
+            height: 400px;
+            display: flex;
+            flex-grow:1;
+            flex-direction: row;
+            justify-content:space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #container div, #container2 div {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+
+<!-- 
+    flex 속성을 사용하려면 반드시 부모요소가 필요
+
+    [ flex-direction ]
+    flex-direction: row; 왼쪽->오른쪽 (기본값)
+    flex-direction: row-reverse; 오른쪽->왼쪽
+    flex-direction: column; 위->아래
+    flex-direction: column-reverse; 아래->위
+
+    [ justify-content ] : 정방향 컨트롤
+    justify-content: flex-start; 기본값
+    justify-content: flex-end; 영역 끝에 위치
+    justify-content: center; 영역 중앙에 위치
+    justify-content: space-around; : 요소들의 좌우 여백이 일정
+    justify-content: space-between; : 첫 번째, 마지막 요소를 끝으로 몰고 그 사이 요소들의 여백을 일정하게
+    justify-content: space-evenly; : 요소 사이의 일정한 여백
+
+    [ align-items ]
+    align-items: flex-start; 기본값
+    align-items: center; 영역 중앙에 위치
+    align-items: flex-end; 영역 끝에 위치
+
+    [ flex-grow ]
+    flex-grow:1; 부모의 영역을 차지할 비율
+    내부 요소를 제외한 나머지 공간에 해당 - 내부 요소에 따라 크기가 상이함
+    자식이 flex가 아니더라도 부모가 flex면 사용 가능
+-->
+
+<body>
+    <div id=parent>
+        <div id="container">
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+        </div>
+        
+        <div id="container2">
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+        </div>
+    </div>
+</body>
+</html>
