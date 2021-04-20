@@ -1,0 +1,75 @@
+html, body, #container {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    width: 100%;
+    height: 120px;
+    background: #1abc9c;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+}
+
+#section {
+    width: 100%;
+    flex-grow:1;
+    overflow: auto;
+    padding: 50px;
+    position: relative;
+}
+
+#section div {
+    margin-bottom: 50px;
+}
+
+#section h3 {
+    margin-bottom: 10px;
+}
+
+.imageArea {
+    display: block;
+    float: right;
+    width: 300px;
+}
+
+.imageArea img {
+    width: 100%;
+}
+
+#top {
+    width: 100%;
+}
+
+#footer {
+    width: 100%;
+    height: 100px;
+    background: #3498db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table, th, tr, td {
+    border : 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+} 
+
+table {
+    width: 40%;
+    height: 100px;
+    margin: auto;
+}

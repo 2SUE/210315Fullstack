@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript</title>
+</head>
+<body>
+
+    <!-- 내용을 적으면 value에 값이 추가됨 -->
+    <input type="text" id="txt">
+    <input type="text" id="txt2">
+
+    <script>
+
+        // 암묵적인 룰 : html - 쌍따옴표 / script - 홑따옴표
+        // html 파일이 브라우저에 로딩되면 객체가 생성됨
+        var txtElem = document.getElementById('txt');
+        console.log('속성 값 추가 전 : ' + txtElem.value);
+        txtElem.value = 'Hello';
+        console.log('속성 값 추가 후 : ' + txtElem.value);
+
+        var txtElem2 = document.getElementById('txt');
+        console.log('변수 txtElem2 : ' + txtElem2.value);
+    </script>
+    
+</body>
+</html>

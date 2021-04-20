@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript</title>
+    <script defer> // defer를 적어주면 html 태그를 먼저 읽어줌 / body에 적어주는 것과 같은 효과
+        
+        var a; // 변수 a 선언
+        a = 10; // 변수 a에 값 10 대입
+        console.log('a : ' + a); // 10
+
+        var b;
+        b = a; // 변수 b에 값 10 대입
+        console.log('b : ' + b); // 10
+
+        a = 20;
+        console.log('a : ' + a); // 20
+        console.log('b : ' + b); // 10
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

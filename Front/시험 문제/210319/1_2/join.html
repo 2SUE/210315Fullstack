@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>join</title>
+    <script src="./commom.js"></script>
+</head>
+<body>
+    <h1>Join</h1>
+
+    <div>
+        <a href="javascript:history.back();">
+            <!-- 아래 둘 중에 하나 쓰면 됨 -->
+            <input type="button" value="뒤로가기"></a>
+        <input type="button" value="뒤로가기" onclick="goToBack()">
+    </div>
+    <div>아이디 : <input type="text" id="id"></div>
+    <div>비밀번호 : <input type="password" id="pw1"></div>
+    <div>비밀번호확인 : <input type="password" id="pw2"></div>
+    <div><input type="button" value="회원가입" onclick="join()"></div>
+</body>
+</html>
