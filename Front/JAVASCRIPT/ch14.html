@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 14</title>
+</head>
+<body>
+    <script>
+        function sum1(n1, n2) {
+            return n1 + n2;
+        }
+
+        // 오버로딩 안 됨!
+        // function sum(n1, n2) {
+        //     return n1;
+        // }
+
+        function sum2(n1, n2) {
+            console.log('sum2 : %d', n1 + n2);
+        }
+
+        var result = sum1(10, 20);
+        console.log('%s : %d', 'sum1', result);
+
+        sum2(11, 22);
+
+        var ddd;
+        // sum(10,20) 결과를 ddd에 대입한 후 출력
+        if(ddd = sum1(10, 20)) {
+            console.log('ddd' + ' = ' + ddd);
+        }
+
+        // return 값이 없으면 undefined가 넘어감
+        result = sum2(11,22);
+        console.log(result);
+        console.log('%s = %d', 'result', result);
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 11</title>
+</head>
+<body>
+    <script>
+        // 0 = false
+        // 0을 제외한 모든 수 = true
+        // '' 빈 문자열 = false
+        // '' 빈 문자열이 아닌 모든 문자열 = true
+        // 객체, 배열 true
+        // undefined, null = false
+        // undefined - 값이 할당된 적이 없다!
+        // null - 기본 값이 없다!
+        // boolean true = true / false = false
+        if (1) {
+            console.log('1은 true');
+        }
+
+        if (0) {
+            console.log('0은 true');
+        } else {
+            console.log('0은 false')
+        }
+
+        if (2) {
+            console.log('2는 true');
+        }
+
+        if (-100) {
+            console.log('-100은 true');
+        }
+
+        if('') {
+            console.log("'(빈 문자열)'은 true")
+        } else {
+            console.log("'(빈 문자열)'은 false")
+        }
+
+        if ('s') {
+            console.log('s는 true');
+        }
+
+        var num1;
+        console.log(num1);
+
+        var num1 = null;
+        console.log(num1);
+    </script>
+</body>
+</html>

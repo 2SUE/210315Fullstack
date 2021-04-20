@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 16</title>
+</head>
+<body>
+    <script>
+        // 자바스크립트는 멤버필드만 존재
+        // 객체 생성
+        var obj = {
+            name: '홍길동',
+            age : 30,
+            run : function() { // 이름이 없는 익명함수
+                console.log('%s이(가) 달린다.', this.name);
+            }
+        };
+
+        console.log(obj);
+        obj.name = '하니';
+        obj['name'] = '홍두깨'; // 대괄호로도 수정 가능
+
+        console.log(obj.name);
+        console.log(obj.age);
+        obj.run();
+
+        obj.run = 10;
+        // obj.run();
+        console.log('obj.run : ' + obj.run);
+        
+        obj.height = 170; // 데이터 추가
+        console.log(obj.height); // 출력
+        delete obj.height; // 데이터 삭제
+
+        var sum1 = function(n1, n2) {
+            return n1 + n2;
+        }
+
+        function sum2(n1, n2) {
+            return n1 + n2;
+        }   
+
+        console.log('sum1 : ' + sum1(10, 20));
+        console.log('sum2 : ' + sum2(10, 20));
+    </script>
+</body>
+</html>
