@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 26 function</title>
+</head>
+<body>
+    <script>
+        function sum(n1 = 20, n2) {
+            console.log(n1);
+            console.log(n2);
+        }
+
+        sum(123);
+        sum(10, 30);
+
+        console.log('----------');
+
+        function sumAll() {
+            // console.log(arguments.length); 인자들을 배열로 넣어줌
+            var sum = 0;
+            for(var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return console.log('sum : ' + sum);
+        }
+
+        sumAll(1);
+        sumAll(1, 5);
+        sumAll(1, 5, 7);
+        sumAll(1, 5, 7, 10);
+
+        function sumAll2(...args) {
+            var sum = 0;
+            for(var i = 0; i < args.length; i++) {
+                sum += args[i];
+            }
+            return console.log('sum2 : ' + sum);
+        }
+
+        console.log('----------');
+
+        sumAll2(1);
+        sumAll2(1, 5);
+        sumAll2(1, 5, 7);
+        sumAll2(1, 5, 7, 10);
+    </script>
+</body>
+</html>

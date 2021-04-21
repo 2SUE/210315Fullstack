@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 29</title>
+</head>
+<body>
+    <script> 
+        // 오래 걸리는 작업(통신)은 무조건 Promise로 감싼다. 
+        // Promise 객체화 해야댐
+
+        // var fn = function(resolve, reject) {
+        //     // 오래 걸리는 작업
+        //     if(작업이 잘 완료 됐다면) {
+        //         resolve();
+        //     } else {
+        //         reject();
+        //     }
+        // }
+
+        // var prom = new Promise(fn);
+
+        // new 어쩌고 객체 생성         // 파라미터 둘 다 함수
+        // resolve : 오류 없을 때 쓰는 함수 reject : 오류 발생 시 실행되는 함수
+        var pro1 = new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                resolve(100); // 안 쓰면 then 못 씀
+            }, 5000);
+        });
+
+        var pro2 = new Promise(function(resolve) {
+            setTimeout(function() {
+                resolve(200);
+            }, 3000);
+        });
+
+        // promise 사용하려면 프로미스 객체가 들은 변수명.then으로 써야댐
+        // resolve() 값이 매개변수로 들어옴
+        pro1.then(function(res) {
+            console.log('pro1 : ' + res);
+        }).catch(function(err) {
+            console.log('err : ' + err);
+        }).then(function(){
+            console.log('값 받는 건 아니공 무조건 실행되는 겨');
+            // 뭔 닫는 용도라고 하는데,, 뭔지,,
+        });
+
+        pro2.then(function(res) {
+            console.log('pro2 : ' + res);
+        });
+
+        // resolve : then에서 값 받음
+        // reject : catch에서 값 받음
+    </script>
+</body>
+</html>
