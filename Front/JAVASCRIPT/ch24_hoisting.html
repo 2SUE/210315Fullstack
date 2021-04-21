@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 24 hoisting</title>
+</head>
+<body>
+    <script>
+        var a = 10;
+        console.log('a : ' + a);
+
+        var b;
+        console.log('b : ' + b);
+
+        console.log('d : ' + d);
+        var d = 11;
+
+        console.log('c : ' + c);
+
+        // 호이스팅 : var 변수 생성 위치에 상관없이 최상단으로 올림
+        // var의 선언부만 옮기고 값은 냅둠
+        // function도 호이스팅 됨
+    </script>
+</body>
+</html>

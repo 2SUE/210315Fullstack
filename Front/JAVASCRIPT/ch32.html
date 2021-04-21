@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 32</title>
+</head>
+<body>
+    <script> 
+        function foo() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log('foo ok');
+                    resolve();
+                }, 3000);
+            });
+        }
+
+        function bar() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log('bar ok');
+                    resolve();
+                }, 2000);
+            });
+        }
+
+        function baz() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log('baz ok');
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        // await, async => function 하나 더 필요
+        async function run() {
+            await foo();
+            await bar();
+            await baz(); // await 생략 가넝한
+            // await을 사용하려면 async 써야함
+        }
+
+        run();
+    </script>
+</body>
+</html>

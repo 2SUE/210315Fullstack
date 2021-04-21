@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 20</title>
+</head>
+<body>
+    <script>
+        var arr = [];
+        
+        arr.push(10); // 자바 ArrayList의 add()와 같음
+        arr.push(20);
+        arr.push(30);
+        arr.push(40);
+        
+        /*
+        arr.shift(); // 0번 인덱스 삭제
+        arr.shift();
+        */
+
+        /*
+        arr.unshift(5); // 가장 앞에 값 추가
+        */
+
+        /*
+        arr.pop(); // 마지막 인덱스 삭제
+        */
+
+        /*
+        arr.length = arr.length - 1; // 마지막 인덱스 삭제 (여러 값 삭제 시 용이)
+        */
+
+        var delVal = arr.splice(2, 2); //중간 값 삭제 / 2번 인덱스부터 값 2개 삭제
+        // 여러 개 삭제하면 삭제한 값이 배열 형태로 넘어옴
+
+        console.log('삭제 전 : ' + arr);
+        console.log('삭제 값 : ' + delVal);
+        console.log('삭제 후 : ' + arr);
+    </script>
+</body>
+</html>

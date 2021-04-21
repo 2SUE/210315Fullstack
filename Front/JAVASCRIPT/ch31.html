@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 31</title>
+</head>
+<body>
+    <script> 
+        function foo() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log('foo ok');
+                    resolve();
+                }, 3000);
+            });
+        }
+
+        function bar() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log('bar ok');
+                    resolve();
+                }, 2000);
+            });
+        }
+
+        function baz() {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    console.log('baz ok');
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        /* Promise 지옥에 빠졌다!
+        foo().then(function() {
+            bar().then(function() {
+                baz().then(function() {
+                })
+            })
+        });
+        */
+
+        foo().then(function() {
+            return bar();
+        }).then(function() {
+            return baz();
+        }).then(function() {
+        });
+    </script>
+</body>
+</html>

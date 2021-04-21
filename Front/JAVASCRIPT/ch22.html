@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 22</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,4,5,6,7,8];
+
+        // 홀수만 담기
+        var result = arr.filter(function(item) {
+            console.log('item : ' + item);
+
+            return item % 2;
+            // true : 배열에 값 담아줌
+            // false : 배열에 값 안 담아줌
+        });
+
+        console.log('arr : ' + arr);
+        console.log('result : ' + result);
+        console.log('result.length : ' + result.length);
+    </script>
+</body>
+</html>
