@@ -8,12 +8,13 @@
 </head>
 <body>
 	<div>
-		<input type="text" id="num1" value="123"> <!-- value=""에 들은 값은 초기에 한 번 뿌려지고, 이후 값 수정, 삭제 가능 --> 
-		<input type="text" id="num2">
-		<button onclick="sum()">더하기</button>
+		<input type="number" id="num1"> <!-- value=""에 들은 값은 초기에 한 번 뿌려지고, 이후 값 수정, 삭제 가능 --> 
+		<input type="number" id="num2">
+		<button onclick="sum();">더하기</button>
+		<button onclick="minus();">빼기</button>
 	</div>
 	<div>
-		<input type="text" id="result">
+		<input type="number" id="result">
 	</div>
 	
 	<script>
@@ -23,9 +24,16 @@
 		
 		function sum() {
 			var num1 = parseInt(num1Elem.value);
-			var num2 = parseInt(num2Elem.value);
-			var result = num1 + num2;
-			resultElem.value = result;
+			var num2 = Number(num2Elem.value);
+			
+			resultElem.value = num1 + num2;
+		}
+
+		function minus() {
+			var num1 = parseInt(num1Elem.value);
+			var num2 = Number(num2Elem.value);
+			
+			resultElem.value = num1 - num2;
 		}
 	</script>
 </body>
