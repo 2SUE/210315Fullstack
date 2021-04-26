@@ -1,0 +1,23 @@
+read 방식
+> list : 글목록
+> detail : 상세페이지 (본인이 쓴 글)
+-
+get방식으로 서버한테 값 전달할 때는
+쿼리스트링으로 전달해야 함
+-
+post 방식으로 서버한테 값 전달할 때는
+form 태그를 사용하여 method를  post로 한 뒤 전달해야 함
+-
+request.setAttribute(키값, value) : 한 공간에 한 값만 담을 수 있다.
+request.getAttribute(키값) : 
+jsp, servlet 소통 : 단방향 (jsp에서 servlet으로 요청x)
+jsp -> servlet = X
+servlet -> jsp = O
+-
+request.getParameter : 브라우저에서 넘어온 정보
+servlet, jsp 둘 다 사용 가능
+-
+Sequence 형식 : 순서가 있는 것, ex) 배열, ArrayList, LinkedList
+Map 형식 : 순서가 없는 것, key=value, ex) request
+-
+request는 무조건 String
