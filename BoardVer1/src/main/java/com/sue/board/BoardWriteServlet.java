@@ -23,9 +23,12 @@ public class BoardWriteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8"); // POST 방식 한글 깨짐현상 방지
 		
 		// 클라이언트에서 넘오는 건 모두 getParameter에서 받음
-		String title = request.getParameter("title");
+		// input의 name 속성 값 -> key / 입력된 값 -> value
+		String title = request.getParameter("title"); 
 		String ctnt = request.getParameter("ctnt");
 		
+		// 곧바로 데이터를 넘기지 않고 객체에 담아서 보낸다~
+		// 걍 보내도 되지만 이렇게 써라~
 		BoardVO vo = new BoardVO();
 		vo.setTitle(title);
 		vo.setCtnt(ctnt);
