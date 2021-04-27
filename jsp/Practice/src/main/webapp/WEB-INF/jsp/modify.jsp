@@ -22,26 +22,27 @@
         #container { width: 400px; height: 600px; box-shadow: 0px 0px 15px 5px white; border-radius: 3%; margin: 100px auto; background: white; }        
         
         #formArea { width: 100%; height: 90%; padding-top: 10px; }
-        form { width: 90%; padding: 5px; margin: 10px auto; }
+        form { width: 90%; padding: 5px; margin: 13px auto; }
 
         #titleArea { width: 100%; height: 20%; margin-bottom: 20px; }
         .title { width: 16%; height: 100%; padding: 3px 0; margin-bottom: 10px; display: inline-block; text-align: center; margin-right: 1%; background: rgb(253, 216, 115); color: white; font-size: .9rem; }
-        .titleInput { width: 100%; height: 25px; padding: 2px 6px; display: inline-block; border: none; border-bottom: 1px solid rgb(253, 216, 115); }
+        .titleInput { width: 100%; height: 25px; padding: 2px 6px; display: inline-block; border: none; border-bottom: 1px solid rgb(253, 216, 115); font-size: .8rem; }
         
         #txtArea { width: 100%; height: 20%; }
         .ctnt { width: 100%; height: 100%; display: inline-block; padding: 0 1%; }
-        .txtInput { width: 100%; height: 380px; resize: none; margin: 10px 0 15px 0; padding: 8px 10px; border: 1px solid rgb(253, 216, 115); }
+        .txtInput { width: 100%; height: 380px; resize: none; margin: 10px 0 15px 0; padding: 8px 10px; border: 1px solid rgb(253, 216, 115); font-size: .8rem; }
         
         input:focus, textarea:focus { outline:none; }
 
         #write { text-align: center; }
-        #write>input { cursor: pointer; border:0; display: inline-block; width: 40%; padding: 10px; background: rgb(253, 216, 115); text-align: center; color: white; text-shadow: 0px 0px 3px 1px white; }
+        #write>input, #write>a { cursor: pointer; border:0; display: inline-block; width: 40%; padding: 10px; background: rgb(253, 216, 115); text-align: center; color: white; text-shadow: 0px 0px 3px 1px white; font-size: .9rem; }
     </style>
 </head>
 <body>
 	<div id="container">
         <div id="formArea">
-	        <form action="/detail?no=<%=no %>" method="post">
+	        <form action="/modify" method="post">
+	        	<input type="hidden" name="no" value="<%=no %>">
 	        	<div id="titleArea">
 	        		<span class="title">제목</span>
 	        		<input class="titleInput" type="text" name="title" value="<%=vo.getTitle() %>">
@@ -53,8 +54,8 @@
 	        	</div>
 
                 <div id="write">
-                    <input type="submit" value="수정"> 
-			        <input type="reset" value="초기화">
+                    <input type="submit" value="등록"> 
+                    <a href="/detail?no=<%=no %>">취소</a> 
                 </div>
 	        </form>
         </div>
