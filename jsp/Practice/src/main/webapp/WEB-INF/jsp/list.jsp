@@ -17,7 +17,7 @@
             font-style: normal;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; list-style-type: none; text-decoration: none; font-family: "DOSGothic"; color: #333; }
-        body { background: rgb(253, 216, 115); }
+        body { background: rgb(253, 216, 115);}
         ::-webkit-scrollbar { display: none; }
         
         #container { width: 400px; height: 600px; box-shadow: 0px 0px 15px 5px white; border-radius: 3%; margin: 100px auto; padding-top: 25px; background: white; }        
