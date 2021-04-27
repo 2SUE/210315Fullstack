@@ -39,7 +39,7 @@
 	        <form action="/write" method="post">
 	        	<div id="titleArea">
 	        		<span class="title">제목</span>
-	        		<input class="titleInput" type="text" name="title" value="">
+	        		<input class="titleInput" type="text" name="title" value="ㅤ">
 	        	</div>
 	        	
 	        	<div id="txtArea">

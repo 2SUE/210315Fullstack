@@ -20,7 +20,7 @@
         body { background: rgb(253, 216, 115); }
         ::-webkit-scrollbar { display: none; }
         
-        #container { width: 400px; height: 600px; box-shadow: 0px 0px 15px 2px white; border-radius: 3%; margin: 100px auto; padding-top: 25px; background: white; }        
+        #container { width: 400px; height: 600px; box-shadow: 0px 0px 15px 5px white; border-radius: 3%; margin: 100px auto; padding-top: 25px; background: white; }        
         
         #write { text-align: center; }
         #write>a { display: inline-block; width: 88%; padding: 10px; background: rgb(253, 216, 115); text-align: center; color: white; text-shadow: 0px 0px 3px 1px white; }
@@ -43,7 +43,7 @@
         		BoardVO vo = list.get(i);
         	%>
             <div id="list">
-                <span class="no"><%=i %></span>
+                <span class="no"><%=i+1 %></span>
                 <span class="title"><a href="/detail?no=<%=i %>"><%=vo.getTitle() %></a></span>
             </div>
         	<%} %>
