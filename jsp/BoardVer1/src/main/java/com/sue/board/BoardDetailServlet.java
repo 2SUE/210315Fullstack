@@ -28,11 +28,5 @@ public class BoardDetailServlet extends HttpServlet {
 		// 일종의 리턴값 -> 하단에 적어줘야 함
 		String jsp = "/WEB-INF/jsp/detail.jsp";
 		request.getRequestDispatcher(jsp).forward(request, response);
-		
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-
 }

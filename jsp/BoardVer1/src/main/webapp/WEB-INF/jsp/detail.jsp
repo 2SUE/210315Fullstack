@@ -13,6 +13,7 @@
 <title>디테일</title>
 </head>
 <body>
+	<h1>디테일</h1>
 <!-- 
 	<h1>Detail page number <%=no %></h1>
 	<h1>Detail page number <%=request.getParameter("no") %></h1> 
@@ -23,6 +24,9 @@
 			<input type="hidden" name="no" value="<%=no %>">
 			<input type="submit" value="삭제">
 		</form>
+		<a href="/mod?no=<%=no %>"><button>수정</button></a>
+		
+		<!-- get방식 del : <a href="/del?no=<%=no%>"><button>삭제</button></a> -->
 	</div>
 	<div>제목 : <%= vo.getTitle()%></div>
 	<div><%= vo.getCtnt()%></div>
