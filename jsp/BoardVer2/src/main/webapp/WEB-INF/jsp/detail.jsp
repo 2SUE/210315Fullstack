@@ -36,6 +36,6 @@
 		<input type="hidden" name="no" value="${param.no}">
 		<input type="submit" value="삭제">
 	</form>
-	<a href="/mod?no=${param.no}">수정</a>
+	<a href="/mod?no=${param.no}"><button>수정</button></a>
 </body>
 </html>
