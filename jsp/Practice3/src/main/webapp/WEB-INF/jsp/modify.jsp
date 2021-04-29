@@ -1,12 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글목록</title>
-    
-    <style>
+<meta charset="UTF-8">
+<title>수정</title>
+<style>
         @font-face {
             font-family: 'DOSGothic';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSGothic.woff') format('woff');
@@ -35,25 +34,25 @@
     </style>
 </head>
 <body>
-    <div id="container">
-        
-	        <form action="/write" method="post">
-	        	<div id="titleArea"></div>
-	        		<span class="title">제목</span>
-	        		<input class="titleInput" type="text" name="title" value="">
-	        	</div>
-	        	
-	        	<div id="txtArea">
-	        		<span class="title">내용</span>
-	        		<textarea class="txtInput" cols="10" rows="10" name="ctnt"></textarea>
-	        	</div>
-
-                <div id="write">
-                    <input type="submit" value="글쓰기"> 
-			        <input type="reset" value="초기화">
-                </div>
-	        </form>
-        </div>
-    </div>
+	<div id="container">
+        <div id="formArea">
+			<form action="/mod" method="post">
+				<div id="titleArea">
+					<span class="title">제목</span>
+					<input class="titleInput" type="text" name="title" value="${db.title}">
+				</div>
+				
+				<div id="txtArea">
+					<span class="title">내용</span>
+					<textarea class="txtInput" rows="13" cols="22" name="ctnt">${db.ctnt}</textarea>
+				</div>
+				
+				<div id="write">
+					<input type="submit" value="수정">
+				</div>
+				<input class="titleInput" type="hidden" name="no" value="${param.no}">
+			</form>
+		</div>
+	</div>
 </body>
 </html>
