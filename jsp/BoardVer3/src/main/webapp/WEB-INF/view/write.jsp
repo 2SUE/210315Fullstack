@@ -10,7 +10,7 @@
 	<div><a href="/list">리스트</a></div>
 	<form action="/write" method="post">
 		<div>제목 : <input type="text" name="title"></div>
-		<div>내용 : <textarea name="ctnt"></textarea></div>
+		<div>내용 : <textarea name="ctnt" rows="13" cols="22"></textarea></div>
 		<div>
 			<input type="submit" value="등록">
 			<input type="reset" value="초기화">

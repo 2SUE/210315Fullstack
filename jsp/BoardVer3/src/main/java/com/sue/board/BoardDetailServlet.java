@@ -1,27 +1,28 @@
 package com.sue.board;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/list")
-public class BoardListServlet extends HttpServlet {
+@WebServlet("/detail")
+public class BoardDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<BoardVO> list = BoardDAO.selBoardList(); // 범위 지정x => 모든 값 다 들고 온다! (테이블 레코드 다 가져옴)
-		request.setAttribute("list", list);
+		String iboard = request.getParameter("iboard");
 		
-		request.getRequestDispatcher("WEB-INF/view/list.jsp").forward(request, response);
+		BoardVO data = BoardDAO.selBoard(Integer.parseInt(iboard)); // 레코드 하나 가져오는 친구
+		
+		request.setAttribute("data", data);
+		
+		request.getRequestDispatcher("WEB-INF/view/detail.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 	}
+
 }
