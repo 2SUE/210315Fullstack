@@ -10,13 +10,14 @@
 	table, tr, th, td { border: 1px solid black; border-collapse: collapse; padding: 5px 10px; }
 	table { text-align: center; }
 	.record { cursor: pointer; }
-	.record:hover { background: cornflowerblue; }
+	.record:hover { background: lightgray; }
 </style>
 </head>
 <body>
  	<div>
  		<a href="/write"><button>글쓰기</button></a>
  	</div>
+ 	<br />
  	<div>
  		<table>
  			<tr>

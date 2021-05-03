@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>디테일</title>
+<title>상세 페이지</title>
 <style>
     @font-face {
         font-family: 'DOSGothic';
@@ -20,7 +20,7 @@
     #article { width: 90%; padding: 5px; margin: 10px auto; }
 
     #titleArea { width: 100%; height: 20%; margin-bottom: 20px; }
-    .title { width: 100%; padding: 10px; display: inline-block; text-align: center; margin-right: 1%; background: rgb(253, 216, 115); color: white; font-size: .9rem; }
+    .title { width: 100%; padding: 10px; display: inline-block; text-align: center; margin-right: 1%; background: rgb(253, 216, 115); color: white; font-size: .9rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; word-wrap:break-word; }
     
     .txtOut { width: 100%; height: 450px; resize: none; margin: 15px 0; padding: 8px 10px; border: 1px solid rgb(253, 216, 115); word-break:break-all; font-size: .8rem; }
     
@@ -35,17 +35,17 @@
 		<div id="articleArea">
 			<div id="article">
 				<div id="titleArea">
-					<div class="title">${db.title}</div>
+					<div class="title" title="${vo.title}">${vo.title}</div>
 				</div>
 				
 				<div id="txtArea">
-	        		<div class="txtOut">${db.ctnt}</div>
+	        		<div class="txtOut">${vo.ctnt}</div>
 	        	</div>
 	        	
 				<form action="/del" method="post" id="modify">
-					<input type="hidden" name="no" value="${param.no}">
+					<input type="hidden" name="iboard" value="${vo.iboard}">
 					<input type="submit" value="삭제" id="delBtn">
-				<a href="/mod?no=${param.no}" id="modifyBtn">수정</a>
+				<a href="/mod?iboard=${vo.iboard}" id="modifyBtn">수정</a>
 				</form>
 			</div>
 		</div>

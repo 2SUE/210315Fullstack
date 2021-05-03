@@ -1,3 +1,5 @@
+CREATE DATABASE Practice4;
+
 CREATE TABLE t_board (
 	iboard INT UNSIGNED PRIMARY key AUTO_INCREMENT,
 	title VARCHAR(100) NOT NULL,
@@ -6,5 +8,3 @@ CREATE TABLE t_board (
 );
 
 SELECT * FROM t_board;
-
-DELETE * FROM t_board WHERE iboard=2;

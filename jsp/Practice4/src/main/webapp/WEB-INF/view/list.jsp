@@ -23,9 +23,10 @@
     #write>a { display: inline-block; width: 88%; padding: 10px; background: rgb(253, 216, 115); text-align: center; color: white; text-shadow: 0px 0px 3px 1px white; }
     
     #listArea { width: 100%; height: 91.5%; overflow-y: scroll; }
-    #list { width: 90%; padding: 5px; margin: 10px auto; }
+    #list { width: 90%; height: 25px; padding: 5px; margin: 10px auto; cursor: pointer; }
     .no { width: 5%; height: 100%; display: inline-block; text-align: center; float: left; margin-right: 1%; background: rgb(253, 216, 115); color: white; }
-    .title { width: 94%; height: 100%; display: inline-block; padding: 0 1%; font-size: 14px; }
+    .title { width: 50%; height: 100%; display: inline-block; padding: 0 1%; font-size: 14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; word-wrap:break-word; }
+    .nowDate { width: 40%; height: 100%; display: inline-block; padding: 0 1%; font-size: 14px; }
 </style>
 </head>
 <body>
@@ -34,17 +35,16 @@
 		 	<a href="/write">글쓰기</a>
 		</div>
 		<ul id="listArea">
-			<c:forEach var="i" items="${db}" varStatus="status">
-				<div id="list">
-					<span class="no">${status.count}</span> 
-					<span class="title"><a href="/detail?no=${status.index}">${i.title}</a></span>
+			<c:forEach items="${list}" var="i">
+				<div id="list" onclick="goToDetail(${i.iboard})">
+					<div class="no">${i.iboard}</div>
+					<div class="title">${i.title}</div>
+					<div class="nowDate">${i.nowDate}</div>
 				</div>
 			</c:forEach>
 		</ul>
-		<%-- div>${list.name}</div> --%>
 	</div>
 </body>
-
 <script>
 	function goToDetail(iboard) {
         location.href="/detail?iboard=" + iboard;
