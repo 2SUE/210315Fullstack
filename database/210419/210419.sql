@@ -23,7 +23,7 @@ CREATE TABLE t_student (
 SELECT * FROM t_student;
 
 INSERT INTO t_student (s_id, nm)
-VALUES (1111, '갑');
+VALUES (1111, '갑');n
 
 INSERT INTO t_student (s_id, nm, ph)
 VALUES

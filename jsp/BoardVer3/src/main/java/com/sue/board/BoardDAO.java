@@ -39,15 +39,17 @@ public class BoardDAO {
 		return 0;
 	}
 	
+	// 전체글 출력 메소드
 	public static List<BoardVO> selBoardList() {
 		List<BoardVO> list = new ArrayList();
 		
 		Connection con = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
+		ResultSet rs = null; // 결과값
 		
-		String sql = " SELECT iboard, title, regdt FROM t_board "; // 문장 끝에 세미콜론 넣으면 안 된다~~
-		
+		String sql = " SELECT iboard, title, regdt FROM t_board "
+				+ " order by iboard DESC "; // 문장 끝에 세미콜론 넣으면 안 된다~~
+				 // 최신글이 제일 위로 올라오도록 정렬
 		try {
 			con = DBUtils.getCon();
 			ps = con.prepareStatement(sql);
@@ -56,6 +58,7 @@ public class BoardDAO {
 			
 			// rs.next() : 레코드 가리키는 역할
 			// 최초 실행 시 첫 번째 레코드 가리킴
+			// 실행시 다음 레코드를 순차적으로 가리킴
 			// 리턴값 : boolean
 			// 레코드 유 => true | 레코드 무 => false
 			while(rs.next()) {
@@ -69,7 +72,7 @@ public class BoardDAO {
 //				vo.setIboard(iboard);
 //				vo.setTitle(title);
 //				vo.setRegdt(regdt);
-				
+			
 				vo.setIboard(rs.getInt("iboard"));
 				vo.setTitle(rs.getString("title"));
 				vo.setRegdt(rs.getString("regdt"));
@@ -83,6 +86,7 @@ public class BoardDAO {
 		return list;
 	}
 	
+	// 개별글 출력 메소드
 	public static BoardVO selBoard(int iboard) {
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -114,6 +118,49 @@ public class BoardDAO {
 			DBUtils.close(con, ps, rs);
 		}
 				
-		return null;
+		return null; // 쿼리 실행 시 반환 값이 없으면 null이 리턴됨
+	}
+	
+	// 삭제 메소드
+	public static void delBoard(BoardVO param) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+		String sql = " DELETE FROM t_board WHERE iboard = ? ";
+		
+		try {
+			con = DBUtils.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, param.getIboard());
+			
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtils.close(con, ps);
+		}
+	}
+	
+	// 글 수정 메소드
+	public static void udtBoard(BoardVO param) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+		String sql = " UPDATE t_board set title = ?, ctnt = ? where iboard = ? ";
+		
+		try {
+			con = DBUtils.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, param.getTitle());
+			ps.setString(2, param.getCtnt());
+			ps.setInt(3, param.getIboard());
+			
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtils.close(con, ps);
+		}
+				
 	}
 }

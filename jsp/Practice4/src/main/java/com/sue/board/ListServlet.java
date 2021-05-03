@@ -9,15 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/list")
-public class BoardListServlet extends HttpServlet {
+public class ListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<BoardVO> list = BoardDAO.selBoardList(); // 범위 지정x => 모든 값 다 들고 온다! (테이블 레코드 다 가져옴)
+		List<BoardVO> list = BoardDAO.listBoard();
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("WEB-INF/view/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/list.jsp").forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 	}
 }

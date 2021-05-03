@@ -39,18 +39,18 @@
 			<form action="/mod" method="post">
 				<div id="titleArea">
 					<span class="title">제목</span>
-					<input class="titleInput" type="text" name="title" value="${db.title}">
+					<input class="titleInput" type="text" name="title" value="${vo.title}">
 				</div>
 				
 				<div id="txtArea">
 					<span class="title">내용</span>
-					<textarea class="txtInput" rows="13" cols="22" name="ctnt">${db.ctnt}</textarea>
+					<textarea class="txtInput" name="ctnt">${vo.ctnt}</textarea>
 				</div>
 				
 				<div id="write">
 					<input type="submit" value="수정">
 				</div>
-				<input class="titleInput" type="hidden" name="no" value="${param.no}">
+				<input class="titleInput" type="hidden" name="no" value="${param.iboard}">
 			</form>
 		</div>
 	</div>
