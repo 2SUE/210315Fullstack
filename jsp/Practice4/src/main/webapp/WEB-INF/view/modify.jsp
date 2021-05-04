@@ -50,7 +50,7 @@
 				<div id="write">
 					<input type="submit" value="수정">
 				</div>
-				<input class="titleInput" type="hidden" name="no" value="${param.iboard}">
+				<input class="titleInput" type="hidden" name="iboard" value="${param.iboard}">
 			</form>
 		</div>
 	</div>

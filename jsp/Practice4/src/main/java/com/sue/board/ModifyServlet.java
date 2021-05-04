@@ -14,6 +14,7 @@ public class ModifyServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String iboard = request.getParameter("iboard");
+		
 		BoardVO vo = new BoardVO();
 		vo.setIboard(Integer.parseInt(iboard));
 		BoardDAO.selBoard(vo);
@@ -30,6 +31,8 @@ public class ModifyServlet extends HttpServlet {
 		
 		BoardVO vo = new BoardVO();
 		vo.setIboard(Integer.parseInt(iboard));
+		vo.setTitle(title);
+		vo.setCtnt(ctnt);
 		BoardDAO.updBoard(vo);
 		
 		response.sendRedirect("detail?iboard=" + iboard);

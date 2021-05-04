@@ -91,6 +91,8 @@ public class BoardDAO {
 			return vo;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			DBUtils.close(con, ps, rs); 
 		}
 		return null;
 	}
@@ -110,7 +112,10 @@ public class BoardDAO {
 			return ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			DBUtils.close(con, ps);
 		}
+		
 		return 0;
 	}
 	
@@ -119,8 +124,22 @@ public class BoardDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		
-		String sql = " UPDATE  ";
-				
+		String sql = " UPDATE t_board set title = ?, ctnt = ? where iboard = ? ";
+		
+		try {
+			con = DBUtils.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, vo.getTitle());
+			ps.setString(2, vo.getCtnt());
+			ps.setInt(3, vo.getIboard());
+			
+			return ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtils.close(con, ps);
+		}
+		
 		return 0;
 	}
 }
