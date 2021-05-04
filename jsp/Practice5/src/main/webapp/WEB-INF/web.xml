@@ -3,7 +3,7 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
-	<display-name>Practice4</display-name>
+	<display-name>Practice5</display-name>
 	<filter>
 		<filter-name>Set Character Encoding</filter-name>
 		<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
