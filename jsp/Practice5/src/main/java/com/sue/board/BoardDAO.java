@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.mariadb.jdbc.internal.com.read.dao.Results;
-
 public class BoardDAO {
 	public static int insertBoard(BoardVO vo) {
 		Connection con = null;
