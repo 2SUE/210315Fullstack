@@ -18,6 +18,6 @@ public class BoardListServlet extends HttpServlet {
 		List<BoardVO> list = BoardDAO.selBoardList(); // 범위 지정x => 모든 값 다 들고 온다! (테이블 레코드 다 가져옴)
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("WEB-INF/view/list.jsp").forward(request, response);
+		MyUtils.openJSP("list", request, response);
 	}
 }

@@ -12,13 +12,13 @@ public class BoardDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String iboard = request.getParameter("iboard");
+		int iboard = MyUtils.getParamInt("iboard", request);
 		
-		BoardVO data = BoardDAO.selBoard(Integer.parseInt(iboard)); // 레코드 하나 가져오는 친구
+		BoardVO data = BoardDAO.selBoard(iboard); // 레코드 하나 가져오는 친구
 		
 		request.setAttribute("data", data);
 		
-		request.getRequestDispatcher("WEB-INF/view/detail.jsp").forward(request, response);
+		MyUtils.openJSP("detail" , request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
