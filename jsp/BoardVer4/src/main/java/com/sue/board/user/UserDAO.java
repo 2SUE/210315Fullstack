@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.mysql.cj.protocol.Resultset;
 import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
 import com.sue.board.DBUtils;
@@ -52,7 +54,10 @@ public class UserDAO {
 			if(rs.next()) {
 				// 아이디 있을 때 => 비밀번호 체크
 				String dbPw = rs.getString("upw");
-				if(dbPw.equals(param.getUpw())) {
+							   // 암호화가 되지 않은 값, 암호화 된 값
+				if(BCrypt.checkpw(param.getUpw(), dbPw)) {
+					param.setIuser(rs.getInt("iuser"));
+					param.setUnm(rs.getString("unm"));
 					return 1;
 				} else {
 					return 3;
@@ -64,9 +69,9 @@ public class UserDAO {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return 0;
 		} finally {
 			DBUtils.close(con, ps, rs);
 		}
-		return 0;
 	}
 }
