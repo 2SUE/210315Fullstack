@@ -8,3 +8,19 @@ CREATE TABLE t_user(
 );
 
 SELECT * FROM t_user;
+
+CREATE TABLE t_board(
+	iboard INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	title VARCHAR(100) NOT NULL,
+	ctnt VARCHAR(2000) NOT NULL,
+	iuser INT UNSIGNED,
+	regdt DATETIME DEFAULT NOW(),
+	FOREIGN KEY (iuser) REFERENCES t_user (iuser)
+);
+
+SELECT * FROM t_board;
+
+SELECT b.iboard, b.title, b.regdt, u.unm 
+FROM t_board b
+LEFT JOIN t_user u 
+ON b.iuser = u.iuser;

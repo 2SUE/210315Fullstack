@@ -5,13 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
+<style>
+	.errMsg { background: yellow; display: inline; }
+</style>
 </head>
 <body>
 	<div>
+		<!-- pageContext, request, session, application에 담겨야 EL식으로 사용 가넝한 -->
+		<h3 class="errMsg">${errMsg}</h3>
 		<div>
 			<form action="login" method="post">
-				<div><input type="text" name="uid" placeholder="아이디"></div>
-				<div><input type="password" name="upw" placeholder="비밀번호"></div>
+				<div><input type="text" name="uid" placeholder="아이디" value="2SUE"></div>
+				<div><input type="password" name="upw" placeholder="비밀번호" value="2sue"></div>
 				<div>
 					<input type="submit" value="Login">
 				</div>
