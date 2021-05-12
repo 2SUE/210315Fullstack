@@ -21,9 +21,7 @@ public class ListServlet extends HttpServlet {
 		HttpSession hs = request.getSession();
 		UserVO loginUser = (UserVO) hs.getAttribute("loginUser");
 		
-		// 로그인 성공 => board/list.jsp 파일 응답
 		// 로그인 실패 => user/login.jsp 파일 응답
-		
 		if(loginUser == null) {
 			response.sendRedirect("/user/login");
 			return;
@@ -31,8 +29,9 @@ public class ListServlet extends HttpServlet {
 		
 		List<BoardVO> list = BoardDAO.selBoard();
 		
-		hs.setAttribute("list", list);
-		
+		request.setAttribute("list", list);
+
+		// 로그인 성공 => board/list.jsp 파일 응답
 		MyUtils.openJSP("board/list", request, response);
 	}
 	

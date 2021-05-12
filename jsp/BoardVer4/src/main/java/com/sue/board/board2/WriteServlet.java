@@ -31,10 +31,16 @@ public class WriteServlet extends HttpServlet {
 		String title = request.getParameter("title");
 		String ctnt = request.getParameter("ctnt");
 		
+		/*
 		HttpSession hs = request.getSession();
 		UserVO loginUser = (UserVO) hs.getAttribute("loginUser");
 		
 		int iuser = loginUser.getIuser();
+		*/
+		
+		// iuser 값이 넘어옴 
+		int iuser = MyUtils.getLoginUserPK(request);
+		System.out.println(iuser);
 		
 		BoardVO param = new BoardVO();
 		param.setIuser(iuser);

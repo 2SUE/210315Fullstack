@@ -5,6 +5,9 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.sue.board.user.UserVO;
 
 public class MyUtils {
 	public static void openJSP(String fileNm, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -24,5 +27,15 @@ public class MyUtils {
 		String val = req.getParameter(key);
 		int intval = parseStringToInt(val);
 		return intval;
+	}
+	
+	public static UserVO getLoginUser(HttpServletRequest req) {
+		if(req == null) { return null; }
+		HttpSession hs = req.getSession();
+		return (UserVO) hs.getAttribute("loginUser");
+	}
+	
+	public static int getLoginUserPK(HttpServletRequest req) {
+		return getLoginUser(req).getIuser();
 	}
 }
