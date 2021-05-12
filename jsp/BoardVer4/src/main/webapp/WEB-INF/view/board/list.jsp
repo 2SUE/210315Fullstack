@@ -17,8 +17,17 @@
 	<br/><hr/>
 
 	<h3>리스트</h3>
-	<c:forEach var="i" items="${list}">
-		<li>(${i.iboard}) 제목 : ${i.title}, 작성자 : ${i.unm}, 작성일 : ${i.regdt}</li>
+		  <!-- items : 시퀀스가 있는 주소값 -->
+	<c:forEach items="${list}" var="i">
+		<li onclick="moveToDetail(${i.iboard})" style="cursor: pointer;">
+			(${i.iboard}) 제목 : ${i.title}, 작성자 : ${i.unm}, 작성일 : ${i.regdt}
+		</li>
 	</c:forEach>
+	
+	<script>
+		function moveToDetail(iboard) {
+			location.href = '/board/detail?iboard=' + iboard;
+		}
+	</script>
 </body>
-</html> 
+</html>
