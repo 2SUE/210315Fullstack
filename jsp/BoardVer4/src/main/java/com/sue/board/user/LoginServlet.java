@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession hs = request.getSession();
 		UserVO loginUser = (UserVO) hs.getAttribute("loginUser");
 		
-		if(loginUser != null) {
+		if(loginUser != null) { // 로그인 상태에서는 로그인 페이지로 넘어가지 않는다
 			response.sendRedirect("/board/list");
 			return;
 		}
@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 			
 			vo.setUpw(null); // pw 값 지움
 
-			hs.setAttribute("loginUser", vo); 
+			hs.setAttribute("loginUser", vo);
 			// vo가 가리키는 userVO 객체는 iuser, uid, unm 값만 담고 있다.
 			
 			response.sendRedirect("/board/list");

@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import com.mysql.cj.protocol.Resultset;
-import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
 import com.sue.board.DBUtils;
 
 public class UserDAO {
@@ -67,7 +65,6 @@ public class UserDAO {
 				return 2;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return 0;
 		} finally {
