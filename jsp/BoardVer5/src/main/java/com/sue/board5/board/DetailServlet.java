@@ -6,8 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sue.board5.MyUtils;
+import com.sue.board5.cmt.CmtDAO;
 
 @WebServlet("/board/detail")
 public class DetailServlet extends HttpServlet {
@@ -15,13 +17,15 @@ public class DetailServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int iboard = MyUtils.getParamInt("iboard", request);
-		BoardVO vo = BoardDAO.selBoard(iboard);
+		BoardVO vo = new BoardVO();
+		vo.setIboard(iboard);
 		
-		request.setAttribute("vo", vo);
+		request.setAttribute("vo", BoardDAO.selBoard(vo));
+		request.setAttribute("cmtlist", CmtDAO.selCmtList(iboard));
+		
+		HttpSession hs = request.getSession();
+		
+		
 		MyUtils.openJSP("board/detail", request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 	}
 }
