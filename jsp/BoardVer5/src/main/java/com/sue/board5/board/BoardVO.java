@@ -6,6 +6,15 @@ public class BoardVO {
 	private String ctnt;
 	private int iuser;
 	private String regdt;
+	private String unm;
+
+	public String getUnm() {
+		return unm;
+	}
+
+	public void setUnm(String unm) {
+		this.unm = unm;
+	}
 
 	public int getIboard() {
 		return iboard;

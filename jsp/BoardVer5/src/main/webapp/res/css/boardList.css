@@ -1,0 +1,4 @@
+@charset "UTF-8";
+
+.record:hover { cursor : pointer; background: cornflowerblue; }
+table, tr, th, td { border : 1px solid black; border-collapse: collapse; padding: 5px 10px; }
