@@ -29,8 +29,4 @@ public class BoardListServlet extends HttpServlet {
 		
 		MyUtils.openJSP("board/list", request, response);
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
 }

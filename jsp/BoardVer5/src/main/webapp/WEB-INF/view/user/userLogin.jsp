@@ -11,10 +11,10 @@
 		<div>${errMsg}</div>
 		<form action="login" method="post">
 			<div>
-				<label> ID : <input type="text" name="uid"></label>
+				<label> ID : <input type="text" name="uid" value="sue"></label>
 			</div>
 			<div>
-				<label> PW : <input type="password" name="upw"></label>
+				<label> PW : <input type="password" name="upw" value="1"></label>
 			</div>
 			<div>
 				<input type="submit" value="로그인">

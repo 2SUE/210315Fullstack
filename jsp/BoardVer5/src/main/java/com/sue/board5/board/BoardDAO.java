@@ -38,7 +38,11 @@ public class BoardDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String sql = " SELECT * FROM t_board ";
+		String sql = " SELECT b.iboard, b.title, b.regdt, b.iuser, u.unm "
+				+ " FROM t_board b "
+				+ " LEFT JOIN t_user u "
+				+ " ON b.iuser = u.iuser "
+				+ " ORDER BY iboard DESC ";
 		
 		try {
 			con = DBUtils.getCon();
@@ -49,9 +53,9 @@ public class BoardDAO {
 				BoardVO vo = new BoardVO();
 				vo.setIboard(rs.getInt("iboard"));
 				vo.setTitle(rs.getString("title"));
-				vo.setCtnt(rs.getString("ctnt"));
-				vo.setIuser(rs.getInt("iuser"));
 				vo.setRegdt(rs.getString("regdt"));
+				vo.setIuser(rs.getInt("iuser"));
+				vo.setUnm(rs.getString("unm"));
 				
 				list.add(vo);
 			}
@@ -65,27 +69,32 @@ public class BoardDAO {
 		}
 	}
 	
-	public static BoardVO selBoard(int iboard) {
+	public static BoardVO selBoard(BoardVO param) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		BoardVO vo = null;
 		
-		String sql = " SELECT * FROM t_board WHERE iboard = ? ";
+		String sql = " SELECT b.iboard, b.title, b.regdt, b.iuser, b.ctnt, u.unm "
+				+ " FROM t_board b "
+				+ " INNER JOIN t_user u "
+				+ " ON b.iuser = u.iuser "
+				+ " WHERE b.iboard = ? ";
 		
 		try {
 			con = DBUtils.getCon();
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, iboard);
+			ps.setInt(1, param.getIboard());
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
 				vo = new BoardVO();
-				vo.setIboard(iboard);
+				vo.setIboard(rs.getInt("iboard"));
 				vo.setTitle(rs.getString("title"));
 				vo.setCtnt(rs.getString("ctnt"));
 				vo.setIuser(rs.getInt("iuser"));
 				vo.setRegdt(rs.getString("regdt"));	
+				vo.setUnm(rs.getString("unm"));	
 			}
 			return vo;
 		} catch (Exception e) {
