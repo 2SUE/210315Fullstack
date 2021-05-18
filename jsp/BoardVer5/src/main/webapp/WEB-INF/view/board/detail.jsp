@@ -8,25 +8,48 @@
 <title>${vo.title}</title>
 <link type="text/css" rel="stylesheet" href="/res/css/boardList.css">
 <script defer src="/res/js/boardDetail.js"></script>
+<style>
+	.hidden { display: none; }
+</style>
 </head>
 <body>
 	<div>
-		<div>(${vo.iboard}) ${vo.title}</div>
-		<div>작성자 : ${vo.unm} | 작성일 : ${vo.regdt}</div>
-		<div>${vo.ctnt}</div>
+		<div>(${requestScope.vo.iboard}) ${requestScope.vo.title}</div>
+		<div>작성자 : ${requestScope.vo.unm} | 작성일 : ${requestScope.vo.regdt}</div>
+		<div>${requestScope.vo.ctnt}</div>
 		
 		<div>
-		<form action="/board/cmt" method="post">
-			<input type="hidden" name="iboard" value="${vo.iboard}">
-			<div>
-				<textarea name="cmt" placeholder="댓글 내용"></textarea>
+			<form id="insForm" action="cmt" method="post">
+													   		<!-- param.iboard -->
+				<input type="hidden" name="iboard" value="${requestScope.vo.iboard}">
+				<input type="hidden" name="icmt" value="0">
+				<h3>댓글</h3>
 				<div>
-					<input type="submit" value="댓글 작성">
+					<textarea name="cmt" placeholder="댓글 내용"></textarea>
+					<div>
+						<input type="submit" value="댓글 작성">
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
 		</div>
 		
+		<div>
+			<form id="updForm" class="hidden" action="cmt" method="post">
+													   		<!-- param.iboard -->
+				<input type="hidden" name="iboard" value="${requestScope.vo.iboard}">
+				<input type="hidden" name="icmt" value="0">
+				<h3>댓글 수정</h3>
+				<div>
+					<textarea name="cmt" placeholder="댓글 내용"></textarea>
+					<div>
+						<input type="submit" value="댓글 수정">
+						<input type="button" value="수정 취소" onclick="showInsFrm();">
+					</div>
+				</div>
+			</form>
+		</div>
+		
+		<br/>
 		<div>
 			<table>
 				<tr>
@@ -41,16 +64,18 @@
 					requestScope어쩌고 쓰면 
 					pageContext, request, session에 일일이 묻지 않고 
 					바로 request에서 처리 가능 
+					
+					jstl은 pageContext에 값 넣어줌
 				-->
 				<c:forEach items="${requestScope.cmtlist}" var="i" >
 					<tr>
-						<td>${i.icmt}</td>
+						<td>${pageScope.i.icmt}</td>
 						<td>${i.cmt}</td>
 						<td>${i.unm}</td>
 						<td>${i.regdate}</td>
 						<td>
-							<c:if test="${i.iuser == sessionScope.loginUser.iuser}">
-								<input type="button" value="수정">
+							<c:if test="${i.iuser == sessionScope.loginUser.iuser}">				    <!-- 문자열이라서 홑따옴표로 감싸줘야댐 -->
+								<input type="button" value="수정" onclick="updCmt(${i.icmt}, '${i.cmt}');">
 								<button onClick="delCmt(${requestScope.vo.iboard}, ${i.icmt})">삭제</button>
 							</c:if>
 						</td>
