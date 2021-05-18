@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+table, th, td { border: 1px solid black; border-collapse: collapse; }
+table { padding: 5px 10px; }
+
+#container { position: relative; }
+
+.popup { width: 300px; height: 150px; position: fixed; margin:0 auto; top: 80px; left: 0; right: 0; z-index: 10; border: 1px solid black; background: white; text-align: center; }

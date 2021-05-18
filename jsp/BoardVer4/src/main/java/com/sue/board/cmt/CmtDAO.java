@@ -1,4 +1,4 @@
-package com.sue.board5.cmt;
+package com.sue.board.cmt;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,14 +6,14 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sue.board5.DBUtils;
+import com.sue.board.DBUtils;
 
 public class CmtDAO {
-	public static void insCmt(CmtVO param) {
+	public static void insertCmt(CmtVO param) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		
-		String sql = " INSERT INTO t_board_cmt (iboard, iuser, cmt) VALUES (?,?,?)";
+		String sql = " INSERT INTO t_board_cmt (iboard, iuser, cmt) VALUES (?, ?, ?)";
 		
 		try {
 			con = DBUtils.getCon();
@@ -36,12 +36,11 @@ public class CmtDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String sql = " SELECT A.icmt, A.iuser, A.cmt, A.regdate, B.unm "
-				+ " FROM t_board_cmt A"
+		String sql = " SELECT A.icmt, A.iboard, A.iuser, A.cmt, A.regdate, B.unm "
+				+ " FROM t_board_cmt A "
 				+ " INNER JOIN t_user B "
-				+ " ON A.iuser = B.iuser "
-				+ " WHERE iboard = ? "
-				+ " ORDER BY A.icmt DESC ";
+				+ " ON a.iuser = b.iuser "
+				+ " WHERE iboard = ? ";
 		
 		try {
 			con = DBUtils.getCon();
@@ -49,19 +48,21 @@ public class CmtDAO {
 			ps.setInt(1, iboard);
 			rs = ps.executeQuery();
 			
-			while(rs.next()) {
+			while (rs.next()) {
 				CmtVO vo = new CmtVO();
 				vo.setIcmt(rs.getInt("icmt"));
+				vo.setIboard(rs.getInt("iboard"));
 				vo.setIuser(rs.getInt("iuser"));
 				vo.setCmt(rs.getString("cmt"));
 				vo.setRegdate(rs.getString("regdate"));
 				vo.setUnm(rs.getString("unm"));
 				list.add(vo);
 			}
+			
 			return list;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		} finally {
 			DBUtils.close(con, ps, rs);
 		}
@@ -84,25 +85,6 @@ public class CmtDAO {
 		} finally {
 			DBUtils.close(con, ps);
 		}
-	}
-	
-	public static void updCmt(CmtVO param) {
-		Connection con = null;
-		PreparedStatement ps = null;
 		
-		String sql = " UPDATE t_board_cmt SET cmt = ? WHERE icmt = ? AND iuser = ? ";
-		
-		try {
-			con = DBUtils.getCon();
-			ps = con.prepareStatement(sql);
-			ps.setString(1, param.getCmt());
-			ps.setInt(2, param.getIcmt());
-			ps.setInt(3, param.getIuser());
-			ps.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBUtils.close(con, ps);
-		}
 	}
 }
