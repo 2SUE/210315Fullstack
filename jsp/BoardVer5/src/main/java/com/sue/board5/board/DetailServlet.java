@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.sue.board5.MyUtils;
 import com.sue.board5.cmt.CmtDAO;
@@ -20,12 +19,9 @@ public class DetailServlet extends HttpServlet {
 		BoardVO vo = new BoardVO();
 		vo.setIboard(iboard);
 		
-		request.setAttribute("vo", BoardDAO.selBoard(vo));
-		request.setAttribute("cmtlist", CmtDAO.selCmtList(iboard));
-		
-		HttpSession hs = request.getSession();
-		
-		
+		request.setAttribute("vo", BoardDAO.selBoard(vo)); // 글의 정보
+		request.setAttribute("cmtlist", CmtDAO.selCmtList(iboard)); // 댓글 리스트의 정보
+				
 		MyUtils.openJSP("board/detail", request, response);
 	}
 }

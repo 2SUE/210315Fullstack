@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sue.board.MyUtils;
+import com.sue.board.cmt.CmtDAO;
 
 @WebServlet("/board/detail")
 public class DetailServlet extends HttpServlet {
@@ -19,11 +20,8 @@ public class DetailServlet extends HttpServlet {
 		
 		request.setAttribute("data", data);
 		
+		request.setAttribute("cmtList", CmtDAO.selCmtList(iboard));
+		
 		MyUtils.openJSP("board/detail", request, response);
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
-
 }
