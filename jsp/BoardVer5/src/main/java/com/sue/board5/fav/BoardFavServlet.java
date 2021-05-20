@@ -1,4 +1,4 @@
-package com.sue.board5.board;
+package com.sue.board5.fav;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,23 +8,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sue.board5.MyUtils;
-import com.sue.board5.cmt.CmtDAO;
 
-@WebServlet("/board/detail")
-public class DetailServlet extends HttpServlet {
+@WebServlet("/board/fav")
+public class BoardFavServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int iboard = MyUtils.getParamInt("iboard", request);
 		int iuser = MyUtils.getLoginUserPK(request);
 		
-		BoardVO vo = new BoardVO();
-		vo.setIuser(iuser);
-		vo.setIboard(iboard);
+		int fav = MyUtils.getParamInt("fav", request);
 		
-		request.setAttribute("vo", BoardDAO.selBoard(vo)); // 글의 정보
-		request.setAttribute("cmtlist", CmtDAO.selCmtList(iboard)); // 댓글 리스트의 정보
-				
-		MyUtils.openJSP("board/detail", request, response);
+		switch (fav) {
+		case 0: // 좋아요 취소 (delete)
+			FavDAO.delFav(iboard, iuser);
+			break;
+			
+		case 1: // 좋아요 처리 (insert)
+			FavDAO.insFav(iboard, iuser);
+			break;
+		}
+		
+		response.sendRedirect("detail?iboard=" + iboard);
 	}
 }

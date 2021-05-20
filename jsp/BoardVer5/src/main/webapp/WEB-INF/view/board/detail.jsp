@@ -7,14 +7,28 @@
 <meta charset="UTF-8">
 <title>${vo.title}</title>
 <link type="text/css" rel="stylesheet" href="/res/css/boardList.css">
-<script defer src="/res/js/boardDetail.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
 	.hidden { display: none; }
+	.fa-heart { color: red; }	
 </style>
+<script defer src="/res/js/boardDetail.js"></script>
 </head>
 <body>
 	<div>
-		<div>(${requestScope.vo.iboard}) ${requestScope.vo.title}</div>
+		<div>
+			<h3>
+				(${requestScope.vo.iboard}) ${requestScope.vo.title}
+				<c:if test="${vo.isFav == 0}">					<!-- 꽉찬 하트 -->
+					<a href="fav?iboard=${param.iboard}&fav=1"><i class="far fa-heart"></i></a>
+				</c:if>
+				<c:if test="${vo.isFav == 1}">
+					<a href="fav?iboard=${param.iboard}&fav=0"><i class="fas fa-heart"></i></a>
+				</c:if>
+			</h3>
+			
+		
+		</div>
 		<div>작성자 : ${requestScope.vo.unm} | 작성일 : ${requestScope.vo.regdt}</div>
 		<div>${requestScope.vo.ctnt}</div>
 		
