@@ -1,5 +1,5 @@
 <%@page import="java.util.List"%>
-<%@page import="com.sue.board.BoardVO"%>
+<%@page import="com.sue.board6.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	

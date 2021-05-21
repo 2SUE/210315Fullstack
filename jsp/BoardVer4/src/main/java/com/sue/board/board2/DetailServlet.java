@@ -16,11 +16,15 @@ public class DetailServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int iboard = MyUtils.getParamInt("iboard", request);
+		int iuser = MyUtils.getLoginUserPK(request);
+		
 		BoardVO data = BoardDAO.selBoard(iboard);
 		
 		request.setAttribute("data", data);
 		
 		request.setAttribute("cmtList", CmtDAO.selCmtList(iboard));
+		
+		request.setAttribute("Selcmt", CmtDAO.selCmt(iuser));
 		
 		MyUtils.openJSP("board/detail", request, response);
 	}
