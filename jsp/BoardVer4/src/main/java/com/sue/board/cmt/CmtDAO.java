@@ -85,6 +85,54 @@ public class CmtDAO {
 		} finally {
 			DBUtils.close(con, ps);
 		}
+	}
+	
+	public static CmtVO selCmt(int icmt) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		CmtVO vo = null;
 		
+		String sql = " SELECT * FROM t_board_cmt WHERE icmt = ? ";
+		
+		try {
+			con = DBUtils.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, icmt);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				vo = new CmtVO();
+				vo.setIcmt(rs.getInt("icmt"));
+				vo.setCmt(rs.getString("cmt"));
+				vo.setIuser(rs.getInt("iuser"));
+			}
+			
+			return vo;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return vo;
+		} finally {
+			DBUtils.close(con, ps, rs);
+		}
+	}
+	
+	public static void updCmt(CmtVO param) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+		String sql = " UPDATE t_board_cmt SET cmt = ? where icmt = ? "; 
+		
+		try {
+			con = DBUtils.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, param.getCmt());
+			ps.setInt(2, param.getIcmt());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtils.close(con, ps);
+		}
 	}
 }

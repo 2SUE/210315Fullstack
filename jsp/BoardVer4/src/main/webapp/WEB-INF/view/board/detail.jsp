@@ -6,7 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>${data.title}</title>
-<link href="/res/css/detail.css" type="text/css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/res/css/detail.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/res/js/detail.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -36,14 +38,18 @@
 		</div>
 		
 		<div class="popup">
-			<form action="cmt" method="post">
+			<form id="modFrm" action="cmt" method="post">
+				<input type="hidden" name="icmt" value="">	
+				<input type="hidden" name="mod" value="1">	
 				<input type="hidden" name="iboard" value="${param.iboard}">
 				<h3>댓글 수정</h3>
 				<textarea name="cmt"></textarea>
-				<div><input type="submit" value="댓글 수정"></div>
+				<br/>
+				<input type="submit" value="댓글 수정">
 			</form>
+			<span class="xBtn" onclick="closeModMode();">X</span>
 		</div>
-				
+		
 		<br/>
 		
 		<div>
@@ -58,12 +64,12 @@
 				<c:forEach items="${cmtList}" var="item">
 					<tr>
 						<td>${item.unm}</td>
-						<td>${item.cmt}</td>
+						<td id="cmt_${item.icmt}">${item.cmt}</td>
 						<td>${item.regdate}</td>
 						<c:if test="${item.iuser == loginUser.iuser}">
 							<td>
-								<button onclick="cmtMod()">수정</button>
-								<a href="cmt?icmt=${item.icmt}&iboard=${param.iboard}">
+								<button class="modBtn" onclick="modBtn(${item.icmt});">수정</button>
+								<a href="cmt?icmt=${item.icmt}&iboard=${param.iboard}&del=1">
 									<button>삭제</button>
 								</a>
 							</td>
@@ -72,6 +78,8 @@
 							<td>암것도 아님니다</td>
 						</c:if>
 					</tr>
+					
+					
 				</c:forEach>
 			</table>
 		</div>
