@@ -1,4 +1,4 @@
-package com.sue.board5;
+package com.sue.site;
 
 
 import java.sql.Connection;
@@ -8,12 +8,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBUtils {
+	/*
+	연결 확인
+	
+	public static void main(String[] args) {
+		try {
+			getCon();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	*/
+	
 	public static Connection getCon() throws Exception {
-		final String DB_NAME = "boardVer5";
+		final String DB_NAME = "practice6";
 		final String DRIVER = "com.mysql.cj.jdbc.Driver";
-		final String URL = "jdbc:mysql://localhost:3306/" + DB_NAME; // 3308
+		final String URL = "jdbc:mysql://localhost:3306/" + DB_NAME;
 		final String USER_NAME = "root";
-		final String PASSWORD = "1234"; // koreait
+		final String PASSWORD = "1234";
 		
 		Class.forName(DRIVER);
 		Connection con = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
