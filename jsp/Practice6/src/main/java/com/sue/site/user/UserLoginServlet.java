@@ -23,6 +23,7 @@ public class UserLoginServlet extends HttpServlet {
 			response.sendRedirect("/board/list");
 			return;
 		}
+		
 		MyUtils.openJSP("user/login", request, response);
 	}
 
