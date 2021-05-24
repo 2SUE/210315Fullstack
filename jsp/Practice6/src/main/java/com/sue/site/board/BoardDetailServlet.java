@@ -1,6 +1,7 @@
 package com.sue.site.board;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sue.site.MyUtils;
+import com.sue.site.cmt.CmtDAO;
+import com.sue.site.cmt.CmtVO;
 
 @WebServlet("/board/detail")
 public class BoardDetailServlet extends HttpServlet {
@@ -15,11 +18,18 @@ public class BoardDetailServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int iboard = MyUtils.paramStringToInt("iboard", request);
+		int iuser = MyUtils.loginUserPK(request);
 		
-		BoardVO param = new BoardVO();
-		param.setIboard(iboard);
+		BoardVO paramB = new BoardVO();
+		paramB.setIboard(iboard);
+		paramB.setIuser(iuser);
 		
-		request.setAttribute("data", BoardDAO.selBoard(param));
+		request.setAttribute("data", BoardDAO.selBoard(paramB));
+		
+		CmtVO paramC = new CmtVO();
+		paramC.setIboard(iboard);
+		
+		request.setAttribute("cmtList", CmtDAO.selCmtList(paramC));
 		
 		MyUtils.openJSP("board/detail", request, response);
 	}
