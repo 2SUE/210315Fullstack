@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>${requestScope.title}</title>
 <link rel="stylesheet" href="/res/css/common.css">
+<script defer src="/res/js/common.js"></script> <!-- defer : 화면을 먼저 띄우고 파일 읽음! -->
 </head>
 <body>
 	<!-- 화면 열 때마다 이 파일 사용 -->

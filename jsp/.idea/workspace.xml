@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f047df94-7645-47a2-9d49-1374c8048f22" name="Default Changelist" comment="" />
+    <list default="true" id="f047df94-7645-47a2-9d49-1374c8048f22" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoardVer7/src/main/java/com/sue/board7/board/BoardDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoardVer7/src/main/java/com/sue/board7/board/BoardDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoardVer7/src/main/java/com/sue/board7/board/BoardDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoardVer7/src/main/java/com/sue/board7/board/BoardDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoardVer7/src/main/java/com/sue/board7/board/BoardListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoardVer7/src/main/java/com/sue/board7/board/BoardListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practice5/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Practice5/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practice6/src/main/webapp/WEB-INF/view/board/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Practice6/src/main/webapp/WEB-INF/view/board/detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practice6/src/main/webapp/res/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Practice6/src/main/webapp/res/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Servers/Tomcat v9.0 Server at localhost-config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Servers/Tomcat v9.0 Server at localhost-config/server.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,13 +35,15 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -47,6 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1621859084208</updated>
       <workItem from="1621859089838" duration="213000" />
+      <workItem from="1621904043093" duration="382000" />
     </task>
     <servers />
   </component>

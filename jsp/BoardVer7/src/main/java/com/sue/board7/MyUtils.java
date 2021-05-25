@@ -37,10 +37,8 @@ public class MyUtils {
 		return (UserEntity) hs.getAttribute("loginUser");
 	}
 	
-	/*
 	public static int getLoginUserPK(HttpServletRequest req) {
 		return getLoginUser(req).getIuser();
 	}
-	*/
 	
 }

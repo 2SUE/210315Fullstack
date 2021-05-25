@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 												<!-- false를 리턴하면 실행x -->
 <form id="frm" action="join" method="post" onsubmit="return frmChk();">
 	<div>

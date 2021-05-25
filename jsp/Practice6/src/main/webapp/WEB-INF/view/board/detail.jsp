@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>${param.iboard}번째 글</title>
-<script src="/res/js/app.js"></script>
+<script src="/res/js/app.js?Ver1"></script>
 <link rel="stylesheet" type="text/css" href="/res/css/style.css">
 </head>
 <body>
