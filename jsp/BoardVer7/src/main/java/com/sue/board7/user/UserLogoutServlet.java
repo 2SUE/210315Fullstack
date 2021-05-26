@@ -15,6 +15,6 @@ public class UserLogoutServlet extends HttpServlet {
 		HttpSession hs = request.getSession();
 		hs.invalidate();
 
-		response.sendRedirect("referer"); // 이전 페이지로 이동 ( 페이지 유지)
+		response.sendRedirect("/board/list"); // 이전 페이지로 이동 ( 페이지 유지)
 	}
 }
