@@ -62,8 +62,8 @@ function frmChk() {
 	// 비밀번호 한 글자도 없으면 alert('비밀번호를 작성해 주세요.'); return false;
 	// 3자 이하면 alert('비밀번호는 4글자 이상 작성해 주세요.'); return false;
 	// 비밀번호와 확인비밀번호가 다르면 alert('비밀번호를 확인해 주세요'); return false;
-	if(uidVal.length <= 3) {
-		if(uidVal.length == 0) {
+	if(upwVal.length <= 3) {
+		if(upwVal.length == 0) {
 			alert('비밀번호를 작성해 주세요.');
 		} else {
 			alert('비밀번호는 4글자 이상 작성해 주세요.'); 

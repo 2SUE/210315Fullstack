@@ -10,15 +10,21 @@
 	<div><c:out value="${requestScope.data.ctnt}" /></div> <!-- c:out으 보안상 쓴다,,,, -->
 </div>	
 
-<div>						<!-- data-어쩌고에 값 저장 	enter 치면 form이 날아가는데, 이걸 방지-->
-	<form id="cmtFrm" data-iboard="${param.iboard}" onsubmit="return false;">
-		<input type="text" id="cmt">
-		<input type="button" value="댓글 달기" onclick="regCmt();">
-	</form>
+<div>
+
+	<c:if test="${not empty sessionScope.loginUser}">
+		<!-- onsubmit="return false; : data-어쩌고에 값 저장 	enter 치면 form이 날아가는데, 이걸 방지-->
+		<!-- dataset에 대문자 금지-->
+		<form id="cmtFrm" onsubmit="return false;">
+			<input type="text" id="cmt">
+			<input type="button" value="댓글 달기" onclick="regCmt();">
+		</form>
+	</c:if>
+	
 </div>
 
-<div id="cmtList">
+<div id="cmtList" data-login_user_pk="${sessionScope.loginUser.iuser}" data-iboard="${param.iboard}">
 
 </div>
 
-<script src="/res/js/boardDetail.js"></script>
+<script src="/res/js/boardDetail.js?ver4"></script>
