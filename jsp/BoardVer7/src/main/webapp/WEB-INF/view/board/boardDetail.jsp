@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<link rel="stylesheet" href="/res/css/boardDetail.css">
 
 <div>
 	<a href="#" onclick="goBack();">리스트로 돌아가기</a>
@@ -25,6 +26,17 @@
 
 <div id="cmtList" data-login_user_pk="${sessionScope.loginUser.iuser}" data-iboard="${param.iboard}">
 
+</div>
+
+<div id="modal" class="displayNone">
+	<div class="modal_content">
+		<form action="#" id="cmtModFrm">
+			<input type="hidden" id="icmt">
+			<input type="text" id="cmt">
+		</form>
+		<input type="button" value="댓글 수정" onclick="modAjax();">
+		<input type="button" value="취소" onclick="closeModal();">
+	</div>
 </div>
 
 <script src="/res/js/boardDetail.js?ver4"></script>

@@ -14,26 +14,26 @@
 	<!-- 모든 get 방식에서 이 파일 오픈 -->
 	<!-- 외부파일 포함 -->
 	
-	<header>
-		<nav>
-			<ul>
-				<c:if test="${empty sessionScope.loginUser}">
-					<li><a href="/user/login">로그인</a></li>
-				</c:if>
-				
-				<c:if test="${not empty sessionScope.loginUser}">
-					<li><a href="/user/logout">로그아웃</a></li>
-					<li><a href="/board/write">글쓰기</a></li>
-					<li><a href="/board/favoriteList">좋아요</a></li>
-				</c:if>
-				<li><a href="/board/list">리스트</a></li>
-			</ul>
-		</nav>
-	</header>
-	
-	<section>
-		<jsp:include page="/WEB-INF/view/${requestScope.jsp}.jsp"></jsp:include>
-	</section>
-	
+<header>
+	<nav>
+		<ul>
+			<c:if test="${empty sessionScope.loginUser}">
+				<li><a href="/user/login">로그인</a></li>
+			</c:if>
+			
+			<c:if test="${not empty sessionScope.loginUser}">
+				<li><a href="/user/logout">로그아웃</a></li>
+				<li><a href="/board/write">글쓰기</a></li>
+				<li><a href="/user/myPage">마이페이지</a></li>
+			</c:if>
+			<li><a href="/board/list">리스트</a></li>
+		</ul>
+	</nav>
+</header>
+
+<section>
+	<jsp:include page="/WEB-INF/view/${requestScope.jsp}.jsp"></jsp:include>
+</section>
+
 </body>
 </html>
