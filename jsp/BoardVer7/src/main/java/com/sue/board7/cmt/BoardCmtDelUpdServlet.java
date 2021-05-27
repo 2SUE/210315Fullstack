@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.sue.board7.MyUtils;
+import com.sue.board7.board.BoardDAO;
 
 @WebServlet("/board/cmtDelUpd")
 public class BoardCmtDelUpdServlet extends HttpServlet {
@@ -34,6 +36,25 @@ public class BoardCmtDelUpdServlet extends HttpServlet {
 
 	// 댓글 수정
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		int icmt = MyUtils.getParamInt("icmt", request);
+		String cmt = request.getParameter("cmt");
+		int iuser = MyUtils.getLoginUserPK(request);
+		
+		System.out.println("icmt : " + icmt);
+		System.out.println("cmt : " + cmt);
+		
+		BoardCmtEntity param = new BoardCmtEntity();
+		param.setIcmt(icmt);
+		param.setCmt(cmt);
+		param.setIuser(iuser);
+		
+		int result = BoardCmtDAO.updBoardCmt(param);
+		
+		response.getWriter()
+		.append("{")
+		.append("\"result\" : ")
+		.append(String.valueOf(result))
+		.append("}")
+		.flush();
 	}
 }

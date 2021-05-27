@@ -1,5 +1,6 @@
 var cmtFrmElem = document.querySelector('#cmtFrm');
 var cmtListElem = document.querySelector('#cmtList');
+var cmtModModalElem = document.querySelector('#modal');
 
 function regCmt() {
     var cmtVal = cmtFrmElem.cmt.value;
@@ -95,9 +96,18 @@ function makeCmtElemList(data) {
 			var delBtn = document.createElement('button');
 			var modBtn = document.createElement('button');
 
+            // 삭제 버튼 클릭 시 호출
             delBtn.addEventListener('click', function() {
-                delAjax(item.icmt);
+                if(confirm('삭제하시겠습니까?')) {
+                    delAjax(item.icmt);
+                }
             });
+
+            // 수정 버튼 클릭 시 호출
+            // 댓글 수정 모달창 띄우기
+            modBtn.addEventListener('click', function() {
+                openModal(item);
+            })
 
 			delBtn.innerText = '삭제';
 			modBtn.innerText = '수정';
@@ -128,10 +138,51 @@ function delAjax(icmt) {
             alert('삭제 실패!');
             break;
         case 1 :
-            alert('삭제 완료!');
+            getListAjax();
             break;
         }
     })
+}
+
+function modAjax() {
+    var cmtModFrmElem = document.querySelector('#cmtModFrm');
+    var param = {
+        icmt : cmtModFrmElem.icmt.value,
+        cmt : cmtModFrmElem.cmt.value
+    }
+
+    const init = {
+        method:'post',
+        body:new URLSearchParams(param)
+    };
+
+    fetch('cmtDelUpd', init)
+    .then(function(res) {
+        return res.json();
+    })
+    .then(function(myJson) {
+        closeModal();
+        switch(myJson.result) {
+        case 0 :
+            alert('수정 실패!');
+            break;
+        case 1 :
+            getListAjax();
+            break;
+        }
+    })
+}
+
+// {멤버 필드명} : 객체를 보내면 객체 안의 변수 값이 들어감
+function openModal({icmt, cmt}) {
+    var cmtModFrmElem = document.querySelector('#cmtModFrm');
+    cmtModModalElem.className = '';
+    cmtModFrmElem.icmt.value = icmt;
+    cmtModFrmElem.cmt.value = cmt;
+}
+
+function closeModal() {
+    cmtModModalElem.className = 'displayNone';
 }
 
 getListAjax(); // 파일이 import되면 이 함수 1회 호출
