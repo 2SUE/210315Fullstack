@@ -24,6 +24,19 @@
 					</c:otherwise>	
 				</c:choose>
 			</td>
+			
+			<c:choose>		
+				<%-- if 프로필 이미지가 없으면 기본 이미지 --%>
+				<c:when test="${empty i.profileImg}">
+					<c:set var="img" value="/res/img/noProfile.jpg"></c:set>
+				</c:when>
+				
+				<%-- else 프로필 이미지가 있으면 해당 이미지 --%>
+				<c:otherwise>
+					<c:set var="img" value="/res/img/user/${i.iuser}/${i.profileImg}"/>
+				</c:otherwise>
+			</c:choose>
+			
 			<td>
 				<c:choose>
 					<c:when test="${param.searchType eq 4}">
@@ -31,6 +44,7 @@
 					</c:when>
 					<c:otherwise>
 						${i.writerNm}	
+						<img src="${img}" class="profileImg">
 					</c:otherwise>
 				</c:choose>
 			</td>

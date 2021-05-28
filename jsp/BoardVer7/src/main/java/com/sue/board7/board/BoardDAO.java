@@ -16,7 +16,7 @@ public class BoardDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String sql = " SELECT b.iboard, b.title, b.regdt, b.iuser, u.unm AS writerNm "
+		String sql = " SELECT b.iboard, b.title, b.regdt, b.iuser, u.unm AS writerNm, u.profileImg "
 				+ " FROM t_board b "
 				+ " LEFT JOIN t_user u "
 				+ " ON b.iuser = u.iuser ";
@@ -54,6 +54,7 @@ public class BoardDAO {
 				vo.setRegdt(rs.getString("regdt"));
 				vo.setIuser(rs.getInt("iuser"));
 				vo.setWriterNm(rs.getString("writerNm"));
+				vo.setProfileImg(rs.getString("profileImg"));
 				
 				list.add(vo);
 			}
