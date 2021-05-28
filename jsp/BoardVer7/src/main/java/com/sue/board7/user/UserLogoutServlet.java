@@ -14,7 +14,10 @@ public class UserLogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession hs = request.getSession();
 		hs.invalidate();
-
-		response.sendRedirect("/board/list"); // 이전 페이지로 이동 ( 페이지 유지)
+		
+		String referer = request.getHeader("referer");
+    	System.out.println("referer : " + referer);
+    	
+    	response.sendRedirect(referer);
 	}
 }
