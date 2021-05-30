@@ -38,8 +38,11 @@ public class BoardController {
     }
 
     @GetMapping("/writeMod")
-    public void writeMod(BoardEntity param) {
+    public void writeMod(BoardDTO param, Model model) {
         System.out.println("param : " + param);
+        if(param.getIboard() > 0) {
+            model.addAttribute("data", service.selBoard(param));
+        }
     } // board/writeMod.jsp file 응답
 
     @PostMapping("/writeMod")
