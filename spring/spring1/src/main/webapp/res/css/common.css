@@ -3,7 +3,12 @@
 * { margin: 0; padding: 0; color: #333; }
 a { text-decoration: none; }
 
-.colorRed { color: #ccc; }
+.colorRed { color: red; }
+.displayNone { display: none !important; }
+.fa-kiss-wink-heart { color: #e74c3c; }
+.pointer { cursor: pointer; }
+
+.selected { color: #e74c3c; font-weight: bold; }
 
 .displayNone { display: none !important; }
 

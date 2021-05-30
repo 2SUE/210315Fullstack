@@ -12,14 +12,19 @@
     </insert>
 
     <select id="selMaxPageVal" resultType="_int">
-        SELECT CEIL(COUNT(iboard) / #{recordCnt}) FROM t_board
+        SELECT CEIL(COUNT(A.iboard) / #{recordCnt}) FROM t_board A
+        <if test="selType eq 1">
+            INNER JOIN t_board_fav C
+            ON A.iboard = C.iboard
+            AND C.iuser = #{iuser}
+        </if>
     </select>
 
     <!-- SELECT는 resultType 써줘야댐 -->
     <select id="selBoardList" resultType="BoardDomain">
         SELECT A.iboard, A.title, A.iuser, A.regdt
-             , B.unm AS writerNm, B.profileImg
-             , CASE WHEN C.iboard IS NULL THEN 0 ELSE 1 END AS isFav
+        , B.unm AS writerNm, B.profileImg
+        , CASE WHEN C.iboard IS NULL THEN 0 ELSE 1 END AS isFav
         FROM t_board A
         INNER JOIN t_user B
         ON A.iuser = B.iuser
@@ -35,7 +40,6 @@
         <if test="recordCnt > 0">
             LIMIT #{startIdx}, #{recordCnt}
         </if>
-
     </select>
 
     <select id="selBoard" resultType="BoardDomain">
@@ -50,7 +54,7 @@
     <update id="updBoard">
         UPDATE t_board
         SET title = #{title}
-        , ctnt = #{ctnt}
+          , ctnt = #{ctnt}
         WHERE iboard = #{iboard}
         AND iuser = #{iuser}
     </update>
