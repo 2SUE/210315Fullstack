@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 스프링 기동파일로 사용할 것! -->
+	<!-- bean 등록 : 해당 클래스를 객체화, 객체화한 주소 값을 스프링이 갖고 있다가 요청 시 알려줌 -->
+	<!-- 기본생성자로 객체 생성 -->
+	<!-- 정수 등은 value를 통해 넣어주고, id값은 rel로 넣어준다.-->
+	<bean id="mitv" class="com.spring.first.MITv">
+		<!-- <constructor-arg ref="speaker"></constructor-arg> --> <!-- 생성자를 통해서 값 넣기 -->
+		
+					<!-- 멤버 필드명 -->
+		<property name="speaker" ref="speaker"></property> <!-- setter를 통해서 값 넣기 -->
+	</bean>
+	
+	<!-- bean 등록 시 생성자에 값 넣기 가능 -->
+	<bean id="speaker" class="com.spring.first.AppleSpeaker">
+		<constructor-arg value="30"></constructor-arg>
+	</bean>
+</beans>
