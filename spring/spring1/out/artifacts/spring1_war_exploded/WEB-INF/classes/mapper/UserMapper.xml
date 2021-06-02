@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 매핑시킬 mapper interface 경로 -->
+<mapper namespace="com.sue.spring.user.UserMapper">
+    <insert id="insUser">
+        INSERT INTO t_user
+            (uid, upw, unm, gender)
+        VALUES
+            (#{uid}, #{upw}, #{unm}, #{gender})
+    </insert>
+</mapper>
