@@ -1,6 +1,7 @@
 package com.sue.spring.user;
 
 import lombok.*;
+import org.apache.ibatis.type.Alias;
 
 @Getter
 @Setter
