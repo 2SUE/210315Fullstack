@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+* { margin: 0; padding: 0; color: #333; }
+a { text-decoration: none; }
+
+header nav { background: #ccc; text-align: center; }
+header nav ul { display: inline-block; padding: 10px 0; list-style: none; }
+header nav ul li { float:left; } 
+header nav ul li:not(:first-child) { margin-left: 20px; }
+
+table, td, th { border: 1px solid black; border-collapse: collapse; }
+
+.colorRed { color: #ccc; }
+
+section { text-align: center; padding: 15px; }
+table { margin:  10px auto; }
+
+.displayNone { display: none !important; }

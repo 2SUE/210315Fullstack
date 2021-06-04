@@ -6,9 +6,9 @@
 <mapper namespace="com.sue.spring.user.UserMapper">
     <insert id="insUser">
         INSERT INTO t_user
-            (uid, upw, unm, gender)
+        (uid, upw, unm, gender)
         VALUES
-            (#{uid}, #{upw}, #{unm}, #{gender})
+        (#{uid}, #{upw}, #{unm}, #{gender})
     </insert>
 
     <select id="selUser" resultType="UserEntity">
