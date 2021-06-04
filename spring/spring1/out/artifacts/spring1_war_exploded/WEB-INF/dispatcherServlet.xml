@@ -29,4 +29,6 @@
         오휴나거나,,, 무시당함,, 그걸 방지하기 ,,, 음,, 그래 -->
     <!-- 외부 파일 import 가능 -->
     <mvc:resources mapping="/res/**" location="/res/" />
+
+    <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
 </beans>

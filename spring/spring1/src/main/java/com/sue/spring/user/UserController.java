@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 // bean(스프링에서 관리하는 객체) 등록
 @Controller
 
@@ -22,6 +24,7 @@ public class UserController {
     // class 아래 RequestMapping : 2차 주소값
     // default : method = RequestMethod.GET
     @RequestMapping("/login")
+
     // required = false : String에서 무조건 err이라는 쿼리 스트링이 들어가야 하는 강제성 제거
     // int로 줄 땐 defaultValue를 줘야 한다                                          request 같은넘
     public String login(@RequestParam(value = "err", defaultValue = "0") int err, Model model) {
