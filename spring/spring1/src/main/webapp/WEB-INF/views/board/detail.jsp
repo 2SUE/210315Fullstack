@@ -11,6 +11,7 @@
     <div>작성자 : ${requestScope.data.writerNm} | 작성일 : ${requestScope.data.regdt}</div>
     <div><c:out value="${requestScope.data.ctnt}" /></div> <!-- c:out으 보안상 쓴다,,,, -->
 </div>
+
 <c:if test="${not empty sessionScope.loginUser}">
     <form id="cmtFrm" onsubmit="return false;">
         <input type="text" id="cmt">
