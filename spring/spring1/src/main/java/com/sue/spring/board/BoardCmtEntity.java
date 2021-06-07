@@ -4,6 +4,7 @@ import lombok.*;
 
 @Getter
 @Setter
+@ToString
 public class BoardCmtEntity {
     private int icmt;
     private int iboard;

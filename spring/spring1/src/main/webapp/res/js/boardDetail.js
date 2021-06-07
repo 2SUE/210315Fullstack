@@ -17,10 +17,14 @@ function regCmt() {
 function regAjax(param) {
     const init = {
         method:'post',
-        body:new URLSearchParams(param)
+        body: JSON.stringify(param),
+        headers:{
+            'accept' : 'application/json',
+            'content-type' : 'application/json;charset=UTF-8'
+        }
     };
 
-    fetch('cmtInsSel', init)
+    fetch('cmtIns', init)
     .then(function(res) {
         return res.json(); // 서버에서 받은 자료를 JSON()을 통해 객체화
     })
@@ -45,7 +49,7 @@ function getListAjax() {
 
     // 두 번째 값(설정)이 없다! -> get방식으로 queryString 날림
     // String이 객체가 된다.
-    fetch('cmtInsSel?iboard=' + iboard) 
+    fetch('cmtSel?iboard=' + iboard)
     .then(function(res) {
         return res.json();
     })

@@ -35,13 +35,25 @@ public class BoardController {
     }
 
     @ResponseBody // json 형태로 변환글씨
-    @RequestMapping(value = "/cmtInsSel", method = RequestMethod.POST)
+    @RequestMapping(value = "/cmtIns", method = RequestMethod.POST)
     public Map<String, Integer> cmtInsSel(@RequestBody BoardCmtEntity param) {
-        System.out.println("param : " + param);
+        System.out.println("param = " + param);
+
+        int result = service.insBoardCmt(param);
+
         // 순서 개념이 없어서 for, forEach 이런 거 안 댐
         Map<String, Integer> data = new HashMap<>();
-        data.put("result", 1);
+        data.put("result", result);
 
         return data;
+    }
+
+    @ResponseBody
+    @RequestMapping("/cmtSel")
+    // query String으로 날아와서 @requestBody 안 적어도 됨
+    public List<BoardCmtDomain> cmtSel(BoardCmtEntity param) {
+        System.out.println("param = " + param);
+
+        return service.selBoardCmtList(param);
     }
 }
