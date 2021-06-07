@@ -8,4 +8,4 @@ import lombok.*;
 public class BoardCmtDomain  extends BoardEntity {
     private String writerNm;
     private String profileImg;
-}
+}k
