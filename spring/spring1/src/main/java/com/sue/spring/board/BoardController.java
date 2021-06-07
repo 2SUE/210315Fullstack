@@ -45,7 +45,7 @@ public class BoardController {
         Map<String, Integer> data = new HashMap<>();
         data.put("result", result);
 
-        return data;
+        return data; ㅎ
     }
 
     @ResponseBody
