@@ -12,12 +12,24 @@
 
     <!-- resultType : select한 값들과 매핑되는,, -->
     <select id="selBoardCmtList" resultType="BoardCmtDomain">
-        SELECT A.icmt, A.iuser, A.cmt, A.regdate,
-               B.unm AS writerNm, B.profileImg
+        SELECT
+            A.icmt, A.iuser, A.cmt, A.regdate
+             , B.unm AS writerNm, B.profileImg
         FROM t_board_cmt A
         INNER JOIN t_user B
         ON A.iuser = B.iuser
-        WHERE iboard = #{iboard}
+        WHERE A.iboard = #{iboard}
         ORDER BY A.icmt
     </select>
+
+    <delete id="delBoardCmt">
+        DELETE FROM t_board_cmt
+        WHERE icmt = #{icmt} AND iuser = #{iuser}
+    </delete>
+
+    <update id="updBoardCmt">
+        UPDATE t_board_cmt
+        SET cmt = #{cmt}
+        WHERE icmt = #{icmt} AND iuser = #{iuser}
+    </update>
 </mapper>

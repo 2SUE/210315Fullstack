@@ -9,6 +9,10 @@
     <script defer src="/res/js/boardList.js"></script>
 </head>
 <body>
+
+    <span>로그인 아이디 : ${sessionScope.loginUser.uid}</span>
+    <span><a href="/user/profile">프로필</a></span>
+
     <table>
         <tr>
             <th>번호</th>
@@ -39,7 +43,7 @@
 
                     <%-- else 프로필 이미지가 있으면 해당 이미지 --%>
                     <c:otherwise>
-                        <c:set var="img" value="/res/img/user/${i.iuser}/${i.profileImg}"/>
+                        <c:set var="img" value="/img/${i.iuser}/${i.profileImg}"/>
                     </c:otherwise>
                 </c:choose>
 
