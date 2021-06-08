@@ -3,19 +3,16 @@ package com.sue.spring.board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// bean 등륙
 @Controller
 @RequestMapping("/board")
 public class BoardController {
-
     @Autowired
     private BoardService service;
 
@@ -34,10 +31,10 @@ public class BoardController {
         return "board/detail";
     }
 
-    @ResponseBody // json 형태로 변환글씨
-    @RequestMapping(value = "/cmtIns", method = RequestMethod.POST)
-    public Map<String, Integer> cmtInsSel(@RequestBody BoardCmtEntity param) {
-        System.out.println("param = " + param);
+    @ResponseBody // json 형태로 변환
+    @RequestMapping(value = "/cmt", method = RequestMethod.POST)
+    public Map<String, Integer> cmtIns(@RequestBody BoardCmtEntity param) {
+        System.out.println("cmtIns param = " + param);
 
         int result = service.insBoardCmt(param);
 
@@ -48,12 +45,36 @@ public class BoardController {
         return data;
     }
 
-    @ResponseBody
-    @RequestMapping("/cmtSel")
     // query String으로 날아와서 @requestBody 안 적어도 됨
-    public List<BoardCmtDomain> cmtSel(BoardCmtEntity param) {
-        System.out.println("param = " + param);
-
+    @ResponseBody
+    @RequestMapping("/cmt/{iboard}")                       // 스프링이 객체생성 해줌
+    public List<BoardCmtDomain> cmtSel(@PathVariable int iboard, BoardCmtEntity param) {
+        param.setIboard(iboard);
         return service.selBoardCmtList(param);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/cmt/{icmt}", method = RequestMethod.DELETE)
+    public Map<String, Integer> cmtDel(BoardCmtEntity param, @PathVariable int icmt) {
+        param.setIcmt(icmt);
+
+        System.out.println("cmtDel param : " + param);
+
+        int result = service.delBoardCmt(param);
+
+        // JSON 형태로 객체화
+        Map<String, Integer> data = new HashMap<>();
+        data.put("result", result);
+
+        return data;
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/cmt", method = RequestMethod.PUT)
+    public Map<String, Integer> cmtUpd(@RequestBody BoardCmtEntity param) {
+        int result = service.updBoardCmt(param);
+        Map<String, Integer> data = new HashMap();
+        data.put("result", result);
+        return data;
     }
 }

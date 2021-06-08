@@ -5,7 +5,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class BoardCmtDomain  extends BoardEntity {
+public class BoardCmtDomain extends BoardCmtEntity {
     private String writerNm;
     private String profileImg;
-}k
+}

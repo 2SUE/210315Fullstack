@@ -16,7 +16,7 @@ function regCmt() {
 // 서버에 등록
 function regAjax(param) {
     const init = {
-        method:'post',
+        method:'POST',
         body: JSON.stringify(param),
         headers:{
             'accept' : 'application/json',
@@ -24,7 +24,7 @@ function regAjax(param) {
         }
     };
 
-    fetch('cmtIns', init)
+    fetch('cmt', init)
     .then(function(res) {
         return res.json(); // 서버에서 받은 자료를 JSON()을 통해 객체화
     })
@@ -49,12 +49,12 @@ function getListAjax() {
 
     // 두 번째 값(설정)이 없다! -> get방식으로 queryString 날림
     // String이 객체가 된다.
-    fetch('cmtSel?iboard=' + iboard)
+    fetch('cmt/' + iboard)
     .then(function(res) {
         return res.json();
     })
-    .then(function(myJson) { 
-        console.log(myJson);
+    .then(function(myJson) {
+        console.log("myJson = " + myJson);
         makeCmtElemList(myJson);
     })
 }
@@ -83,7 +83,7 @@ function makeCmtElemList(data) {
     tableElem.append(trElemTitle);
     cmtListElem.append(tableElem);
 
-    var loginUserPk = cmtListElem.dataset.login_user_pk;
+    var loginUserPk = cmtListElem.dataset.loginUserPk;
 
     data.forEach(function(item) { // 인자로 함수 받음 (callback)
         var trElemCtnt = document.createElement('tr');
@@ -92,7 +92,7 @@ function makeCmtElemList(data) {
         var tdElem3 = document.createElement('td');
         var tdElem4 = document.createElement('td');
 
-        tdElem1.append(item.cmt);
+        tdElem1.innerText = item.cmt;
         tdElem2.append(item.writerNm);
         tdElem3.append(item.regdate);
 
@@ -126,11 +126,11 @@ function makeCmtElemList(data) {
 		trElemCtnt.append(tdElem4);
 
 		tableElem.append(trElemCtnt);
-    }); 
-} 
+    });
+}
 
 function delAjax(icmt) {
-    fetch('cmtDelUpd?icmt=' + icmt)
+    fetch('cmt/' + icmt, { method: 'DELETE' })
     .then(function(res) {
         return res.json();
     })
@@ -142,6 +142,7 @@ function delAjax(icmt) {
             alert('삭제 실패!');
             break;
         case 1 :
+            cmtFrmElem.cmt.value = '';
             getListAjax();
             break;
         }
@@ -152,15 +153,19 @@ function modAjax() {
     var cmtModFrmElem = document.querySelector('#cmtModFrm');
     var param = {
         icmt : cmtModFrmElem.icmt.value,
-        cmt : cmtModFrmElem.cmt.value
+        cmt : cmtModFrmElem.modCmt.value
     }
 
     const init = {
-        method:'post',
-        body:new URLSearchParams(param)
+        method:'PUT',
+        body: JSON.stringify(param), // 보안을 위해 body애 넣어줌
+        headers:{
+            'accept' : 'application/json',
+            'content-type' : 'application/json;charset=UTF-8'
+        }
     };
 
-    fetch('cmtDelUpd', init)
+    fetch('cmt', init)
     .then(function(res) {
         return res.json();
     })
@@ -182,7 +187,7 @@ function openModal({icmt, cmt}) {
     var cmtModFrmElem = document.querySelector('#cmtModFrm');
     cmtModModalElem.className = '';
     cmtModFrmElem.icmt.value = icmt;
-    cmtModFrmElem.cmt.value = cmt;
+    cmtModFrmElem.modCmt.value = cmt;
 }
 
 function closeModal() {

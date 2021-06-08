@@ -15,4 +15,18 @@
         SELECT * FROM t_user
         WHERE uid = #{uid}
     </select>
+
+    <!-- set : 경우의 수,, -->
+    <update id="updUser">
+        UPDATE t_user
+        <set>
+            <if test=" upw != null and upw != '' "> <!-- 비번 수정 -->
+                upw = #{upw}
+            </if>
+            <if test=" profileImg != null and profileImg != '' ">
+                profileImg = #{profileImg} <!-- mybatis가 알아서 , 넣어줌 -->
+            </if>
+        </set>
+        WHERE iuser = #{iuser}
+    </update>
 </mapper>
