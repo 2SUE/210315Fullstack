@@ -23,12 +23,27 @@ public class BoardController {
         return "board/list";
     }
 
+    /*
+    주소 값과 리턴 값이 동일하면 void 가능, return 안 해도 됨됨
+   @RequestMapping("/list")
+    public void list(어쩌고) { 저쩌고 }
+    */
+
     @RequestMapping("/detail")
     public String detail(BoardDTO param, Model model) {
         System.out.println("iboard : " + param.getIboard());
         BoardDomain data = service.selBoard(param);
         model.addAttribute("data", data);
         return "board/detail";
+    }
+
+    @GetMapping("/writeMod")
+    public void writeMod() { } // board/wirteMod.jsp file 응답
+
+    @PostMapping("/writeMod")
+    public String writeMod(BoardEntity param) {
+        int iboard = service.writeMod(param);
+        return "redirect:detail?iboard" + iboard;
     }
 
     @ResponseBody // json 형태로 변환

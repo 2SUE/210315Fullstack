@@ -6,3 +6,31 @@ a { text-decoration: none; }
 .colorRed { color: #ccc; }
 
 .displayNone { display: none !important; }
+
+html, body, ul { margin: 0; padding: 0; }
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+header ul:after{
+    content:'';
+    display: block;
+    clear:both;
+}
+header ul li {
+    float: left;
+}
+header ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+header ul li a:hover:not(.active) {
+    background-color: #111;
+}
+
+/*header ul li a:hover:n*/
