@@ -18,10 +18,16 @@
     <!-- 애노테이션으로 bean 등록할 클래스들을 스캔뜨는 시작 패키지 설정 -->
     <context:component-scan base-package="com.sue.spring"/> <!-- 기존 패키지명 -->
 
+    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+        <property name="order" value="1" /> <!-- 우선순위 1위 -->
+    </bean>
+
     <!-- 사용할 파일명을 완성해주는 객체 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
+        <property name="order" value="2" /> <!-- 우선순위 2위 -->
     </bean>
 
     <!-- /로 시작하는 애들은 dispatcher가 잡는데, 얘가 controller를 찾움
@@ -33,4 +39,13 @@
     <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
     
     <mvc:resources mapping="/img/**" location="file:///C:/study/springImg/" /> <!-- 파일 업로드 -->
+
+    <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <!-- 멤버 필드가 list라는 뜻 -->
+            <list>
+                <value>/WEB-INF/tiles.xml</value>
+            </list>
+        </property>
+    </bean>
 </beans>

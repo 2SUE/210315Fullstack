@@ -3,12 +3,10 @@ package com.sue.spring.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 // bean(스프링에서 관리하는 객체) 등록
@@ -63,13 +61,21 @@ public class UserController {
         return "user/login"; // response.sendRedirect 역할
     }
 
-    @RequestMapping("/profile")
-    public String profile() {
-        return "user/profile";
-    }
+    @GetMapping("/profile")
+    public void profile() {  }
 
     @PostMapping("/profile") // @RequestMapping(value = "/profile", method = RequestMethod.POST) 똑같음
     public String profile(MultipartFile profileImg) { // MultipartFile[] : 여러 개 보낼 때
         return "redirect:" + service.uploadProfile(profileImg);
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession hs, HttpServletRequest req) {
+        hs.invalidate();
+
+        // 이전 페이지로 이동
+        String referer = req.getHeader("Referer");
+        return "redirect:" + referer;
+        // return "redirect:/user/login";
     }
 }

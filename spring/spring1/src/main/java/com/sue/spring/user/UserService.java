@@ -56,6 +56,13 @@ public class UserService {
 
         try {
             img.transferTo(target);
+
+            // 이전 이미지 삭제
+            File delFile = new File(PATH + "/" + loginUser.getProfileImg());
+
+            if(delFile.exists()) {
+                delFile.delete();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,7 +70,6 @@ public class UserService {
         UserEntity param = new UserEntity();
         param.setIuser(loginUser.getIuser());
         param.setProfileImg(fileNm);
-
         mapper.updUser(param);
 
         loginUser.setProfileImg(fileNm);
