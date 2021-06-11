@@ -35,11 +35,12 @@ public class BoardService {
 
         // 등록
         if(param.getIboard() == 0) {
+            mapper.insBoard(param);
+        } else {
+            //수정
             return 0;
         }
-
-        //수정
-        return 0;
+        return param.getIboard();
     }
 
     public int insBoardCmt(BoardCmtEntity param) {

@@ -9,8 +9,6 @@ CREATE TABLE t_board (
 
 SELECT * FROM t_board;
 
-DELETE FROM t_board WHERE iuser = 1 AND iboard = 1;
-
 
 CREATE TABLE t_user(
 	iuser INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -44,7 +42,7 @@ CREATE TABLE t_board_cmt (
 	FOREIGN KEY (iuser) REFERENCES t_user(iuser)
 );
 
-SELECT * FROM t_board_cmt;
+SELECT * FROM t_board_cmt;spring1
 
 CREATE TABLE t_board_fav (
 	iboard INT UNSIGNED,
@@ -56,3 +54,5 @@ CREATE TABLE t_board_fav (
 );
 
 SELECT * FROM t_board_fav;
+
+INSERT INTO t_board(title, ctnt, iuser

@@ -2,22 +2,26 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<div id="wrap">
-    <div>
-        <a href="#" onclick="goBack();">리스트로 돌아가기</a>
-        <h1>${requestScope.data.title}</h1>
-        <div>글번호 : ${requestScope.data.iboard}</div>
-        <div>작성자 : ${requestScope.data.writerNm} | 작성일 : ${requestScope.data.regdt}</div>
-        <div><c:out value="${requestScope.data.ctnt}" /></div> <!-- c:out은 보안상 쓴다,,,, -->
-    </div>
+<a href="#" onclick="goBack();">리스트로 돌아가기</a>
 
-    <c:if test="${not empty sessionScope.loginUser}">
-        <form id="cmtFrm" onsubmit="return false;">
-            <input type="text" id="cmt">
-            <input type="button" value="댓글 달기" onclick="regCmt();">
-        </form>
-    </c:if>
-</div>
+<c:if test="${sessionScope.loginUser.iuser eq requestScope.boardDomain.iuser}">
+    <div>
+        <a href="writeMod?iboard=${param.iboard}"><button>수정</button></a>
+        <a href=""><button>수정</button></a>
+    </div>
+</c:if>
+
+<h1>${requestScope.boardDomain.title}</h1>
+<div>글번호 : ${requestScope.boardDomain.iboard}</div>
+<div>작성자 : ${requestScope.boardDomain.writerNm} | 작성일 : ${requestScope.boardDomain.regdt}</div>
+<div><c:out value="${requestScope.boardDomain.ctnt}" /></div> <!-- c:out은 보안상 쓴다,,,, -->
+
+<c:if test="${not empty sessionScope.loginUser}">
+    <form id="cmtFrm" onsubmit="return false;">
+        <input type="text" id="cmt">
+        <input type="button" value="댓글 달기" onclick="regCmt();">
+    </form>
+</c:if>
 
 <div id="cmtList" data-login-user-pk="${sessionScope.loginUser.iuser}"
      data-iboard="${param.iboard}">
