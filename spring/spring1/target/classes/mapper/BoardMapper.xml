@@ -3,7 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.sue.spring.board.BoardMapper">
-    <insert id="insBoard">
+    <!-- param 객체 주소값에 멤버 필드인 iboard에 auto-increament인 iboard 값 넣어줌 -->
+    <insert id="insBoard" useGeneratedKeys="true" keyProperty="iboard">
         INSERT INTO t_board
         ( title, ctnt, iuser )
         VALUES

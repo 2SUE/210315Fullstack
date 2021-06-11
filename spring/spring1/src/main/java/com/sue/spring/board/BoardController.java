@@ -33,17 +33,19 @@ public class BoardController {
     public String detail(BoardDTO param, Model model) {
         System.out.println("iboard : " + param.getIboard());
         BoardDomain data = service.selBoard(param);
-        model.addAttribute("data", data);
+        model.addAttribute(data); // key 값을 안 적어주면 보내는 타입을 키 값으로 설정함
         return "board/detail";
     }
 
     @GetMapping("/writeMod")
-    public void writeMod() { } // board/wirteMod.jsp file 응답
+    public void writeMod(BoardEntity param) {
+        System.out.println("param : " + param);
+    } // board/writeMod.jsp file 응답
 
     @PostMapping("/writeMod")
-    public String writeMod(BoardEntity param) {
+    public String writeModProc(BoardEntity param) {
         int iboard = service.writeMod(param);
-        return "redirect:detail?iboard" + iboard;
+        return "redirect:detail?iboard=" + iboard;
     }
 
     @ResponseBody // json 형태로 변환
