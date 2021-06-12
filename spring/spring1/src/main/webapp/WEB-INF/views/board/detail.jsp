@@ -7,12 +7,16 @@
 <c:if test="${sessionScope.loginUser.iuser eq requestScope.boardDomain.iuser}">
     <div>
         <a href="writeMod?iboard=${param.iboard}"><button>수정</button></a>
-        <a href=""><button>수정</button></a>
+        <a href="delBoard?iboard=${param.iboard}"><button>삭제</button></a>
     </div>
 </c:if>
 
 <h1>${requestScope.boardDomain.title}</h1>
-<div>글번호 : ${requestScope.boardDomain.iboard}</div>
+<div>글번호 : ${requestScope.boardDomain.iboard}
+    <c:if test="${ not empty sessionScope.loginUser }">
+        <i id="favIcon" class="far fa-kiss-wink-heart pointer"></i>
+    </c:if>
+</div>
 <div>작성자 : ${requestScope.boardDomain.writerNm} | 작성일 : ${requestScope.boardDomain.regdt}</div>
 <div><c:out value="${requestScope.boardDomain.ctnt}" /></div> <!-- c:out은 보안상 쓴다,,,, -->
 
