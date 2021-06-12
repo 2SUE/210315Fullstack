@@ -1,6 +1,6 @@
-package com.koreait.spring;
+package com.sue.spring;
 
-import com.koreait.spring.user.UserEntity;
+import com.sue.spring.user.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

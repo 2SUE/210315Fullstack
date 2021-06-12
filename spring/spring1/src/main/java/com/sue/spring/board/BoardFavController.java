@@ -1,4 +1,4 @@
-package com.koreait.spring.board;
+package com.sue.spring.board;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

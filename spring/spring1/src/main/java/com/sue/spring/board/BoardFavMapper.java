@@ -1,4 +1,4 @@
-package com.koreait.spring.board;
+package com.sue.spring.board;
 
 import org.apache.ibatis.annotations.Mapper;
 
