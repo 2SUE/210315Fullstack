@@ -20,8 +20,20 @@ public class BoardService {
     @Autowired
     private HttpSession session;
 
-    public List<BoardDomain> selBoardList() {
-        return mapper.selBoardList();
+    @Autowired
+    private MyUtils myUtils;
+
+    public int selMaxPageVal(BoardDTO param) {
+        return mapper.selMaxPageVal(param);
+    }
+
+    public List<BoardDomain> selBoardList(BoardDTO param) {
+        param.setIuser(myUtils.getLoginUserPk());
+
+        int startIdx = (param.getPage() - 1) * param.getRecordCnt();
+        param.setStartIdx(startIdx);
+
+        return mapper.selBoardList(param);
     }
 
     public BoardDomain selBoard(BoardDTO param) {
@@ -41,6 +53,16 @@ public class BoardService {
             return 0;
         }
         return param.getIboard();
+    }
+
+    public int delBoard(BoardEntity param) {
+        //댓글 먼저 삭제한다.
+        BoardCmtEntity cmtParam = new BoardCmtEntity();
+        cmtParam.setIboard(param.getIboard());
+        cmtMapper.delBoardCmt(cmtParam);
+
+        param.setIuser(myUtils.getLoginUserPk());
+        return mapper.delBoard(param);
     }
 
     public int insBoardCmt(BoardCmtEntity param) {
