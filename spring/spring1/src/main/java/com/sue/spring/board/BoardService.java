@@ -1,5 +1,6 @@
 package com.sue.spring.board;
 
+import com.sue.spring.MyUtils;
 import com.sue.spring.user.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
