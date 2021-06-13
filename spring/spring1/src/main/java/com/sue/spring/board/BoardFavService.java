@@ -28,3 +28,4 @@ public class BoardFavService {
         return mapper.delBoardFav(param);
     }
 }
+

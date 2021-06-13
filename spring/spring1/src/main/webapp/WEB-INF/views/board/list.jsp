@@ -73,14 +73,14 @@
 </table>
 
 <div>
-    <c:forEach begin="1" end="${requestScope.maxPageVal}" var="page">
-        <c:choose>
-            <c:when test="${(empty param.page && page eq 1) || param.page eq page}">
-                <span class="selected">${page}</span>
-            </c:when>
-            <c:otherwise>
-                <span><a href="list?page=${page}&recordCnt=${param.recordCnt}">${page}</a></span>
-            </c:otherwise>
-        </c:choose>
-    </c:forEach>
+<c:forEach begin="1" end="${requestScope.maxPageVal}" var="page">
+    <c:choose>
+        <c:when test="${(empty param.page && page eq 1) || param.page eq page}">
+            <span class="selected">${page}</span>
+        </c:when>
+        <c:otherwise>
+            <span><a href="list?page=${page}&recordCnt=${param.recordCnt == null ? 5 : param.recordCnt}">${page}</a></span>
+        </c:otherwise>
+    </c:choose>
+</c:forEach>
 </div>

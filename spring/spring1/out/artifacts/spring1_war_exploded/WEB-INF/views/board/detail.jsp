@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<a href="#" onclick="goBack();">리스트로 돌아가기</a>
+<a href="#" onclick="goBack();">돌아가기</a>
 
 <c:if test="${sessionScope.loginUser.iuser eq requestScope.boardDomain.iuser}">
     <div>
