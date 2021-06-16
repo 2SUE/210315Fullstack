@@ -24,3 +24,15 @@ SELECT b.iboard, b.title, b.regdt, u.unm
 FROM t_board b
 LEFT JOIN t_user u 
 ON b.iuser = u.iuser;
+CREATE TABLE `t_board_fav` (
+	`iboard` INT(10) UNSIGNED NOT NULL,
+	`iuser` INT(10) UNSIGNED NOT NULL,
+	`regdt` DATETIME NULL DEFAULT current_timestamp(),
+	PRIMARY KEY (`iboard`, `iuser`) USING BTREE,
+	INDEX `iuser` (`iuser`) USING BTREE,
+	CONSTRAINT `t_board_fav_ibfk_1` FOREIGN KEY (`iboard`) REFERENCES `bootboard`.`t_board` (`iboard`) ON UPDATE RESTRICT ON DELETE RESTRICT,
+	CONSTRAINT `t_board_fav_ibfk_2` FOREIGN KEY (`iuser`) REFERENCES `bootboard`.`t_user` (`iuser`) ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+;

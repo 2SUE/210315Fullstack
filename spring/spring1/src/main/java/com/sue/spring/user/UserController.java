@@ -19,7 +19,7 @@ public class UserController {
 
     // 자동으로 연결
     @Autowired
-    private com.sue.spring.user.UserService service;
+    private UserService service;
 
     // class 아래 RequestMapping : 2차 주소값
     // default : method = RequestMethod.GET

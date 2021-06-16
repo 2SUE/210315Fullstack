@@ -4,7 +4,8 @@ CREATE TABLE t_user(
 	upw VARCHAR(100) NOT NULL,
 	unm VARCHAR(5) NOT NULL,
 	gender INT(1) UNSIGNED CHECK(gender IN (0, 1)),
-	regdt DATETIME DEFAULT NOW()
+	regdt DATETIME DEFAULT NOW(),
+	profileImg VARCHAR(50)
 );
 
 SELECT * FROM t_user;
@@ -14,6 +15,7 @@ CREATE TABLE t_board(
 	title VARCHAR(100) NOT NULL,
 	ctnt VARCHAR(2000) NOT NULL,
 	iuser INT UNSIGNED,
+	
 	regdt DATETIME DEFAULT NOW(),
 	FOREIGN KEY (iuser) REFERENCES t_user (iuser)
 );
@@ -53,3 +55,13 @@ LEFT JOIN t_board_fav C
 ON A.iboard = C.iboard
 AND C.iuser = 3
 WHERE A.iboard = 4;
+
+DROP TABLE db_user;
+
+CREATE TABLE t_user (
+	i_user INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	uid VARCHAR(30) NOT NULL,
+	upw VARCHAR(255) NOT NULL,
+	nm VARCHAR(10) NOT NULL,
+	r_dt DATETIME NOT NULL DEFAULT NOW()
+);
