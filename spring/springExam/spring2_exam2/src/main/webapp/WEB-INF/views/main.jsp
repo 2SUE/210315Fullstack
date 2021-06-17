@@ -23,6 +23,7 @@
                     </c:forEach>
                 </select>
 
+<<<<<<< HEAD
                 일 :
                 <select name="deal_day">
                     <c:forEach begin="1" end="31" var="day">
@@ -30,6 +31,8 @@
                     </c:forEach>
                 </select>
 
+=======
+>>>>>>> 44930beee6abc414103c4e0ded1bf9bde9b4a88e
                 지역 : 대구시
                 <select name="external_cd">
                     <c:forEach items="${requestScope.locationList}" var="item">

@@ -8,6 +8,9 @@ import lombok.Setter;
 public class SearchDTO {
     private String deal_year;
     private int deal_month;
+<<<<<<< HEAD
     private int deal_day;
+=======
+>>>>>>> 44930beee6abc414103c4e0ded1bf9bde9b4a88e
     private String external_cd;
 }
