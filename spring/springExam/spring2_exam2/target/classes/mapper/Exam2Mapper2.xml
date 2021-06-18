@@ -21,7 +21,9 @@
         ON A.location_cd = B.cd
         WHERE A.deal_year = #{deal_year}
         AND A.deal_month = #{deal_month}
+        AND A.deal_day = #{deal_day}
         AND external_cd = #{external_cd}
+        ORDER BY deal_amount DESC;
     </select>
 
     <insert id="insApartmentInfoArr">

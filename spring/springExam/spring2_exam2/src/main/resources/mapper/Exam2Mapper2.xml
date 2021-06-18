@@ -15,13 +15,15 @@
     </select>
 
     <select id="selApartmentInfoList" resultType="ApartmentInfoEntity">
-        SELECT A.*
+        SELECT A.*, B.local_nm
         FROM apartment_info A
         INNER JOIN location_code B
         ON A.location_cd = B.cd
         WHERE A.deal_year = #{deal_year}
         AND A.deal_month = #{deal_month}
+        AND A.deal_day = #{deal_day}
         AND external_cd = #{external_cd}
+        ORDER BY deal_amount DESC;
     </select>
 
     <insert id="insApartmentInfoArr">

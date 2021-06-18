@@ -8,5 +8,6 @@ import lombok.Setter;
 public class SearchDTO {
     private String deal_year;
     private int deal_month;
+    private int deal_day;
     private String external_cd;
 }

@@ -23,6 +23,13 @@
                     </c:forEach>
                 </select>
 
+                일 :
+                <select name="deal_day">
+                    <c:forEach begin="1" end="31" var="day">
+                        <option value="${day}">${day}일</option>
+                    </c:forEach>
+                </select>
+
                 지역 : 대구시
                 <select name="external_cd">
                     <c:forEach items="${requestScope.locationList}" var="item">

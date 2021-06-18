@@ -25,8 +25,10 @@ public class Exam2Service2 {
     @Autowired
     private Exam2Mapper2 mapper;
 
-    public List<LocationCodeEntity> selLocationCodeList() {
-        return mapper.selLocationCodeList();
+    public List<LocationCodeEntity> selLocationCodeList() { return mapper.selLocationCodeList(); }
+
+    public List<ApartmentInfoEntity> selInfo(SearchDTO param) {
+        return mapper.selApartmentInfoList(param);
     }
 
     public void saveData(SearchDTO param) {
