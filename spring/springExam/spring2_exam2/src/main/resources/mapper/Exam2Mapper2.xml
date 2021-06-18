@@ -15,15 +15,23 @@
     </select>
 
     <select id="selApartmentInfoList" resultType="ApartmentInfoEntity">
+<<<<<<< HEAD
         SELECT A.*, B.local_nm
+=======
+        SELECT A.*
+>>>>>>> 44930beee6abc414103c4e0ded1bf9bde9b4a88e
         FROM apartment_info A
         INNER JOIN location_code B
         ON A.location_cd = B.cd
         WHERE A.deal_year = #{deal_year}
         AND A.deal_month = #{deal_month}
+<<<<<<< HEAD
         AND A.deal_day = #{deal_day}
         AND external_cd = #{external_cd}
         ORDER BY deal_amount DESC;
+=======
+        AND external_cd = #{external_cd}
+>>>>>>> 44930beee6abc414103c4e0ded1bf9bde9b4a88e
     </select>
 
     <insert id="insApartmentInfoArr">
