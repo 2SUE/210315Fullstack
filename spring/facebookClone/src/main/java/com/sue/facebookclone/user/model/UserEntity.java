@@ -1,8 +1,11 @@
 package com.sue.facebookclone.user.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.apache.ibatis.type.Alias;
 
-@Data
+@Getter
+@Setter
 public class UserEntity {
     private int iuser;
     private String email;
@@ -10,5 +13,6 @@ public class UserEntity {
     private String nm;
     private String tel;
     private String authCd;
+    private String mainProfile;
     private String regdt;
 }
