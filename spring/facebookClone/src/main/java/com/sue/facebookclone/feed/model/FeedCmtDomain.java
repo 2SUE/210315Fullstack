@@ -7,9 +7,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class FeedDomain extends FeedEntity {
+public class FeedCmtDomain extends FeedCmtEntity {
     private String writer;
-    private String mainProfile;
-    private int ifeedimg;
-    private String img;
+    private String writerProfile;
+    private int isMore; //1: 댓글 더 없음, 2: 댓글 더 있음
 }

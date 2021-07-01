@@ -1,6 +1,8 @@
 package com.sue.facebookclone.user;
 
 import com.sue.facebookclone.common.MyConst;
+import com.sue.facebookclone.feed.model.FeedDTO;
+import com.sue.facebookclone.feed.model.FeedDomain2;
 import com.sue.facebookclone.security.UserDetailsImpl;
 import com.sue.facebookclone.user.model.UserEntity;
 import com.sue.facebookclone.user.model.UserProfileEntity;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -28,7 +31,9 @@ public class UserController {
     private MyConst myConst;
 
     @GetMapping("/login")
-    public void login(UserEntity userEntity) {}
+    public void login(UserEntity userEntity) {
+        userEntity.setEmail("pirbak@daum.net");
+    }
 
     @GetMapping("/join")
     public void join(UserEntity userEntity) {}
@@ -62,15 +67,10 @@ public class UserController {
     public Map<String, Object> mainProfile(UserProfileEntity param) {
         return service.updUserMainProfile(param);
     }
+
+    @ResponseBody
+    @GetMapping("/feedList")
+    public List<FeedDomain2> selFeedList2(FeedDTO param) {
+        return service.selFeedList2(param);
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
